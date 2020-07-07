@@ -3,5 +3,6 @@ class CitiesController < ApplicationController
   end
 
   def index
+    @cities = City.all
   end
 end
