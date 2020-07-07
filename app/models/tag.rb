@@ -1,3 +1,4 @@
 class Tag < ApplicationRecord
-  belongs_to :report_tag
+  has_many :report_tags
+  has_many :reports, through: :report_tags
 end

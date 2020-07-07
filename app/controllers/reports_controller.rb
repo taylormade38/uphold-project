@@ -7,8 +7,8 @@ class ReportsController < ApplicationController
   end
 
   def create
-    authorize @report
     @report = Report.new(report_params)
+    authorize @report
     @report.user = current_user
     if @report.save
       redirect_to report_path(@report)
