@@ -58,3 +58,24 @@ officers.each do |officer|
 
 end
 
+
+puts "Creating tags..."
+
+# tags = %w(Physical-Assault Weapon-Used Racist-Remark Racially-Profiled Excessive-Force Verbal-Abuse Chokehold)
+
+tag1 = {name: 'Weapon Used', info: 'The officer used a weapon.'}
+tag2 = {name: 'Physical Assault', info: 'The officer physically assaulted me.'}
+tag3 = {name: 'Weapon Used', info: 'The officer used a weapon against me, like a taser, baton, pepper spray, gun, etc.'}
+tag4 = {name: 'Racially Profiled', info: 'The officer only stopped me because of my skin color. I was doing nothing wrong.'}
+tag5 = {name: 'Excessive Force', info: 'The officer used an unnecessary amount of force to hold me.'}
+tag6 = {name: 'Community Involvement', info: 'The officer is engaged in our community.'}
+tag7 = {name: 'Education', info: 'The officer taught participated in an event where he taught the community something new.'}
+tag8 = {name: 'Chokehold', info: 'The officer held me in a chokehold'}
+
+[ tag1, tag2, tag3, tag4, tag5, tag6, tag7, tag8 ].each do |attributes|
+  tag = Tag.create!(attributes)
+  puts "Created #{tag.name}"
+end
+
+puts "Finished!"
+

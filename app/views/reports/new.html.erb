@@ -1,2 +1,38 @@
-<h1>Create Report</h1>
-<p>Find me in app/views/reports/new.html.erb</p>
+
+
+<div class="container report-container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 offset-sm-3">
+
+      <div class="form-report">
+        <h1>Create Report</h1>
+        <%= simple_form_for @report do |f| %>
+          <%= f.input :evaluation, as: :radio_buttons, collection: Report::EVALUATION, wrapper: :vertical_collection_inline %>
+          <%= f.association :officer, collection: Officer.all.map { |officer| [officer.first_name, officer.id]} %>
+          <%= f.input :address %>
+          <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+          <%= f.input :content, placeholder: "I was peacefully protesting when..." %>
+
+
+          <fieldset class="form-group">
+            <legend class="col-form-label pt-0">Add Some Tags</legend>
+            <input type="hidden" name="report[tag_ids][]" value="">
+            <div class="tag-choices">
+            <% Tag.all.each do |tag| %>
+
+              <input type="checkbox" class="d-none" value="<%= tag.id %>" name="report[tag_ids][]" id="report_tag_ids_<%= tag.id %>">
+
+              <label class="tag-choice" for="report_tag_ids_<%= tag.id %>"><%= tag.name %></label>
+            <% end %>
+            </div>
+
+          </fieldset>
+
+
+          <%= f.submit "Submit Your Report", class: "btn btn-dark" %>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>
