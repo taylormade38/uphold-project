@@ -1,2 +1,69 @@
-<h1>Officers#show</h1>
-<p>Find me in app/views/officers/show.html.erb</p>
+
+
+<div class="row officer-personal-info-container d-flex flex-row w-100 h-25 bg-white">
+
+    <div class="officer-picture col-6" style="width: 18rem;">
+      <img src="https://source.unsplash.com/1600x900/?police" class="card-img-top" alt="...">
+    </div>
+
+    <div class="officer-personal-info col-6">
+      <div class="card-body">
+        <h5 class="card-title"><%= @officer.first_name %> <%= @officer.last_name %></h5>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Cras justo odio</li>
+        <li class="list-group-item">Dapibus ac facilisis in</li>
+        <li class="list-group-item">Vestibulum at eros</li>
+      </ul>
+<!--       <div class="card-body">
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+      </div> -->
+    </div>
+
+ </div>
+
+<div class="row officer-conduct-summary">
+</div>
+<div class="officer-conduct-full">
+    <div class="card text-center">
+      <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs justify-content-center">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Timeline</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Map</a>
+          </li>
+        </ul>
+      </div>
+      <div class="reports-container">
+          <ul class="reports-list list-group list-group-flush">
+              <% @reports.each do |r| %>
+                  <li class="report list-group-item d-flex">
+                    <div class="report-evaluation col-3 d-flex align-self-center justify-content-center">
+                        <% if r.evaluation == "positive" %>
+                            <div class="evaluation btn-success col-6 text-center rounded">
+                                <%= r.evaluation %>
+                            </div>
+                        <% elsif r.evaluation == "negative" %>
+                            <div class="evaluation btn-danger col-7 text-center rounded">
+                                <%= r.evaluation %>
+                            </div>
+                        <% elsif r.evaluation == "neutral"%>
+                            <div class="evaluation">
+                                <%= r.evaluation %>
+                            </div>
+                        <% end %>
+                    </div>
+                    <div class="report-content col-9 text-left">
+                        <small class="card-text"><%= r.created_at.strftime("%e %b %Y %H:%M:%S%p") %></small>
+                        <p class="card-text"><%= r.content %></p>
+                    </div>
+                  </li>
+            <% end %>
+          </ul>
+      </div>
+    </div>
+</div>
+

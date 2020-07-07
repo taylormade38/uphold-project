@@ -6,36 +6,58 @@ require 'faker'
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-puts "Cleaning database..."
-Officer.destroy_all
-City.destroy_all
+# puts "Cleaning database..."
+# Officer.destroy_all
+# City.destroy_all
 
-puts "Creating cities..."
-city1 = {name: 'New York City', state: 'New York'}
-city2 = {name: 'Los Angeles', state: 'California'}
-city3 = {name: 'Chicago', state: 'Illinois'}
-city4 = {name: 'Houston', state: 'Texas'}
-city5 = {name: 'Phoenix', state: 'Arizona'}
-city6 = {name: 'Philadelphia', state: 'Pennsylvania'}
-city7 = {name: 'San Antonio', state: 'Texas'}
-city8 = {name: 'San Diego', state: 'California'}
+# puts "Creating cities..."
+# city1 = {name: 'New York City', state: 'New York'}
+# city2 = {name: 'Los Angeles', state: 'California'}
+# city3 = {name: 'Chicago', state: 'Illinois'}
+# city4 = {name: 'Houston', state: 'Texas'}
+# city5 = {name: 'Phoenix', state: 'Arizona'}
+# city6 = {name: 'Philadelphia', state: 'Pennsylvania'}
+# city7 = {name: 'San Antonio', state: 'Texas'}
+# city8 = {name: 'San Diego', state: 'California'}
 
-[ city1, city2, city3, city4, city5, city6, city7, city8 ].each do |attributes|
-  city = City.create!(attributes)
-  puts "Created #{city.name}"
+# [ city1, city2, city3, city4, city5, city6, city7, city8 ].each do |attributes|
+#   city = City.create!(attributes)
+#   puts "Created #{city.name}"
+# end
+# puts "Finished!"
+
+# puts "Creating officers .."
+# 32.times do
+#     Officer.create(
+#         first_name: Faker::Name.male_first_name,
+#         last_name: Faker::Name.last_name,
+#         badge_number: Faker::IDNumber.spanish_citizen_number,
+#         department: Faker::Address.community,
+#         city: City.all.sample
+#       )
+# end
+
+
+
+# HAROLD's CODE
+
+officers = Officer.all
+
+officers.each do |officer|
+
+    10.times do
+        report = Report.new
+        report.content = Faker::Lorem.sentence
+        report.address = Faker::Address.full_address
+        report.officer = officer
+        report.user = User.find(1)
+        report.city = City.all.sample
+        report.evaluation = %w(positive negative neutral).sample
+        report.save
+    end
+
 end
-puts "Finished!"
 
-puts "Creating officers .."
-32.times do
-    Officer.create(
-        first_name: Faker::Name.male_first_name,
-        last_name: Faker::Name.last_name,
-        badge_number: Faker::IDNumber.spanish_citizen_number,
-        department: Faker::Address.community,
-        city: City.all.sample
-      )
-end
 
 puts "Creating tags..."
 

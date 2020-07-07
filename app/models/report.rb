@@ -1,6 +1,5 @@
 class Report < ApplicationRecord
-  EVALUATION = ['Positive', 'Negative', 'Neutral']
-
+  EVALUATION = ['positive', 'negative', 'neutral']
   belongs_to :user
   belongs_to :officer, optional: true
   belongs_to :city
