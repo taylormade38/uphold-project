@@ -20,6 +20,10 @@
     border-radius:5px;
     box-shadow:0 0 10px rgba(0,0,0,0.63);
 }
+
+.frontpage-card .card-img-block img:hover{
+  opacity: 0.9;
+}
 .frontpage-card h5{
     color:#4E5E30;
     font-weight:600;
@@ -28,7 +32,19 @@
     font-size:14px;
     font-weight:300;
 }
-.frontpage-card .btn-primary{
-    background-color:#4E5E30;
-    border-color:#4E5E30;
+
+
+.relative{
+  position:relative; width:300px;
 }
+.absolute-text{
+  position:absolute;
+  bottom:0;
+  font-size:20px;
+  font-family: Arial, Helvetica, sans-serif;
+  background:rgba(251,251,251,0.5);
+  padding:10px 20px;
+  width:100%; text-align:center;
+}
+
+
