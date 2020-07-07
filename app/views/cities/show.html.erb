@@ -1,78 +1,63 @@
-<h1>Cities#show</h1>
-<p>Find me in app/views/cities/show.html.erb</p>
 
-<% if policy(Report).create? %>
-  <%= link_to "Submit a Report", new_report_path %>
-<% end %>
-<h1><%= @city.name %></h1>
-<nav class="navbar navbar-inverse visible-xs">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Logo</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Dashboard</a></li>
-        <li><a href="#">Age</a></li>
-        <li><a href="#">Gender</a></li>
-        <li><a href="#">Geo</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
 
 <div class="container-fluid">
+  <div class="d-flex justify-content-around"><h1><%= @city.name %></h1><button type="button" class="btn btn-outline-primary">Write a Report</button>
+  </div>
   <div class="row content">
-    <div class="col-sm-3 sidenav hidden-xs">
-      <h2>Logo</h2>
+    <div class="col-md-6">
+      <img src="https://i.stack.imgur.com/GCU3d.png" alt="">
     </div>
     <br>
 
-    <div class="col-sm-9">
-      <div class="well">
-        <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a href="#section1">Dashboard</a></li>
-        <li><a href="#section2">Age</a></li>
-        <li><a href="#section3">Gender</a></li>
-        <li><a href="#section3">Geo</a></li>
-      </ul><br>
+    <div class="col-md-6">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
       </div>
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="well">
-            <h4>Users</h4>
-            <p>1 Million</p>
-          </div>
-        </div>
+      <div class="flash flash-success">
+        <span><strong>Tags</strong>Racsim Assault Blah</span>
+        <a data-dismiss="alert" aria-label="Close">
+          <i class="fas fa-times"></i>
+        </a>
       </div>
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="well">
-            <p>Text</p>
-            <p>Text</p>
-            <p>Text</p>
-          </div>
+      <div class="notification">
+        <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
+        <div class="notification-content">
+          <p><small>14th January</small></p>
+          <p>Lorem ipsum dolor sit amet, <strong>consectetur</strong> adipisicing elit.</p>
         </div>
-        <div class="col-sm-4">
-          <div class="well">
-            <p>Text</p>
-            <p>Text</p>
-            <p>Text</p>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="well">
-            <p>Text</p>
-            <p>Text</p>
-            <p>Text</p>
-          </div>
+
+        <div class="notification-actions">
+          <a href="#">Edit <i class="fas fa-pencil-alt"></i></a>
+          <a href="#">Delete <i class="far fa-trash-alt"></i></a>
         </div>
       </div>
+
+      <div class="notification">
+        <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
+        <div class="notification-content">
+          <p><small>9th January</small></p>
+          <p>Lorem ipsum dolor sit amet, <strong>consectetur</strong> adipisicing elit.</p>
+        </div>
+
+        <div class="notification-actions">
+          <a href="#">Edit <i class="fas fa-pencil-alt"></i></a>
+          <a href="#">Delete <i class="far fa-trash-alt"></i></a>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
