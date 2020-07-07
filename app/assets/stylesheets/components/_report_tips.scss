@@ -1,8 +1,14 @@
+.report-container h1 {
+  text-align: center;
+}
 .report-tips-container {
   display: flex;
   justify-content: space-between;
+  margin-top: 50px;
 }
 
 .report-tips {
   max-width: 33%;
+  text-align: center;
+  padding: 10px;
 }
