@@ -1,3 +1,4 @@
+require 'faker'
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -19,7 +20,18 @@ city7 = {name: 'San Antonio', state: 'Texas'}
 city8 = {name: 'San Diego', state: 'California'}
 
 [ city1, city2, city3, city4, city5, city6, city7, city8 ].each do |attributes|
-  restaurant = Restaurant.create!(attributes)
-  puts "Created #{restaurant.name}"
+  city = City.create!(attributes)
+  puts "Created #{city.name}"
 end
 puts "Finished!"
+
+puts "Creating officers .."
+32.times do
+    Officer.create(
+        first_name: Faker::Name.male_first_name,
+        last_name: Faker::Name.last_name,
+        badge_number: Faker::IDNumber.spanish_citizen_number,
+        department: Faker::Address.community,
+        city: City.all.sample
+      )
+end
