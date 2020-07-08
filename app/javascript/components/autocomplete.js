@@ -1,9 +1,10 @@
 function autocomplete() {
   document.addEventListener("DOMContentLoaded", function() {
     var reportAddress = document.getElementById('report_address');
-
-    if (reportAddress) {
       console.log('hi')
+    if (reportAddress) {
+      console.log(reportAddress)
+
       console.log(google.maps)
       var autocomplete = new google.maps.places.Autocomplete(reportAddress, { types: [ 'geocode' ] });
       google.maps.event.addDomListener(reportAddress, 'keydown', function(e) {

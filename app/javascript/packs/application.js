@@ -4,7 +4,7 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
-require("turbolinks").start()
+// require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
@@ -35,9 +35,10 @@ import { initMap } from './map'
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-autocomplete();
-initMap();
+  autocomplete();
 
-document.addEventListener('turbolinks:load', () => {
+
+// document.addEventListener('turbolinks:load', () => {
   bindSearchForm();
-});
+  initMap();
+// });
