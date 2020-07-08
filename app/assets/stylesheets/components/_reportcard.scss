@@ -1,8 +1,9 @@
 .card-report {
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin-bottom: 6px;
+  border: 0.3px solid rgba(0,0,0,0.3);
 }
 
 .card-report .card-report-infos > img {
