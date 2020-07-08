@@ -81,28 +81,32 @@
 #   puts "Created #{tag.name}"
 # end
 
-# 500.times do
-#   report_tag = ReportTag.new
-#   report_tag.report = Report.all.sample
-#   report_tag.tag = Tag.all.sample
-#   report_tag.save!
-# end
+reports = Report.all
 
-# puts "Finished!"
-
-
-cities = City.all
-
-cities.each do |city|
-    puts "populating database"
-    city.use_of_force_incidents = rand(1000..5000).to_i
-
-    city.use_of_force_weapons = rand(500..1000).to_i
-    city.use_of_force_unarmed = city.use_of_force_incidents - city.use_of_force_weapons
-    city.complaints_against_police = city.use_of_force_incidents - rand(500..700).to_i
-    city.save!
-
+reports.each do |report|
+    5.times do
+      report_tag = ReportTag.new
+      report_tag.report = report
+      report_tag.tag = Tag.all.sample
+      report_tag.save!
+    end
 end
+
+
+
+
+# cities = City.all
+
+# cities.each do |city|
+#     puts "populating database"
+#     city.use_of_force_incidents = rand(1000..5000).to_i
+
+#     city.use_of_force_weapons = rand(500..1000).to_i
+#     city.use_of_force_unarmed = city.use_of_force_incidents - city.use_of_force_weapons
+#     city.complaints_against_police = city.use_of_force_incidents - rand(500..700).to_i
+#     city.save!
+
+# end
 
 
 
