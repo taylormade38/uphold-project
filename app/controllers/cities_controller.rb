@@ -7,12 +7,13 @@ class CitiesController < ApplicationController
     else
       @reports = @city.reports
 
-    @reports = Report.where.not(latitude: nil, longitude: nil)
-    @markers = @reports.map do |report|
-      {
-        lat: report.latitude,
-        lng: report.longitude
-      }
+      @reports = Report.where.not(latitude: nil, longitude: nil)
+      @markers = @reports.map do |report|
+        {
+          lat: report.latitude,
+          lng: report.longitude
+        }
+      end
     end
   end
 
