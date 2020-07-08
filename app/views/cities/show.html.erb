@@ -1,47 +1,49 @@
 
 <div class="container-fluid">
-  <div class="d-flex justify-content-around"><h1><%= @city.name %></h1><button type="button" class="btn btn-outline-primary">Write a Report</button>
+  <div class="row d-flex flex-column justify-content-center">
+    <div class="col-6 mx-auto d-flex flex-column justify-content-center my-3">
+      <h1 class="text-center"><%= @city.name %></h1>
+      <%= link_to "Write a Report", new_report_path, class: "new-report-button btn btn-outline-secondary"%>
+    </div>
   </div>
   <div class="row content">
     <div class="col-md-6">
-      <div
-      id="map"
-      style="width: 100%;
-      height: 600px;"
-      data-markers="<%= @markers.to_json %>"
-      >
+      <div id="map" style="width: 100%; height: 100vh;" data-markers="<%= @markers.to_json %>"
+        >
+        <!-- map goes here -->
       </div>
     </div>
-      <div class="col-md-6">
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
-          </li>
-        </ul>
-        <div class="tab-content" id="myTabContent">
-          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
-          <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
-          <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
-        </div>
-        <%= form_tag city_path(@city), method: :get, remote: true, id: 'tag-search', class: 'form-inline' do %>
+    <div class="col-md-6">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+      </div>
+      <%= form_tag city_path(@city), method: :get, remote: true, id: 'tag-search', class: 'form-inline search-bar' do %>
         <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
+          params[:query],
+          class: "form-control",
           placeholder: "Search by Tag"
-          %>
-          <%= submit_tag "Search", class: "btn btn-primary" %>
-          <% end %>
+        %>
+        <%= submit_tag "Search", class: "btn btn-primary submit-button" %>
+      <% end %>
+      <div class="report-container">
           <% @reports.each do |report| %>
           <%= render partial: 'shared/report_card', locals: { report: report } %>
-
           <% end %>
-        </div>
       </div>
     </div>
+  </div>
+</div>
 
