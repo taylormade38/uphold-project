@@ -6,11 +6,17 @@ class CitiesController < ApplicationController
       @reports = Report.search_by_tag(params[:query]).where(city: @city)
     else
       @reports = @city.reports
+
+    @reports = Report.where.not(latitude: nil, longitude: nil)
+    @markers = @reports.map do |report|
+      {
+        lat: report.latitude,
+        lng: report.longitude
+      }
     end
   end
 
   def index
-    @cities = City.all
-    authorize @city
+    @cities = policy_scope(City).order(created_at: :desc)
   end
 end

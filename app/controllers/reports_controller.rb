@@ -10,7 +10,9 @@ class ReportsController < ApplicationController
     @report = Report.new(report_params)
     authorize @report
     @report.user = current_user
-    if @report.save
+    @report.city = City.find(params[:report][:city_id])
+    @report.officer = Officer.find(params[:report][:officer_id])
+    if @report.save!
       redirect_to report_path(@report)
     else
       render :new
@@ -44,6 +46,6 @@ class ReportsController < ApplicationController
   end
 
   def report_params
-    params.require(:report).permit(:city, :content, :evaluation)
+    params.require(:report).permit(:content, :evaluation, :address, :city_id, :officer_id)
   end
 end

@@ -26,8 +26,17 @@ require("channels")
 import "bootstrap";
 import {bindSearchForm} from '../components/reload_search_turbolinks';
 
+import "../plugins/popover_activation";
+import "../plugins/tag_choice";
+
+
+import { autocomplete } from "../components/autocomplete"
+import { initMap } from './map'
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+autocomplete();
+initMap();
 
 document.addEventListener('turbolinks:load', () => {
   bindSearchForm();
