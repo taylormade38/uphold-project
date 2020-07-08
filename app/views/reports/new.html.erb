@@ -39,11 +39,11 @@
     <div class="form-report">
       <h2>Share Your Story</h2>
       <%= simple_form_for @report do |f| %>
-      <%= f.input :evaluation, as: :radio_buttons, collection: Report::EVALUATION, wrapper: :vertical_collection_inline %>
-      <%= f.association :officer, collection: Officer.all.map { |officer| [officer.first_name, officer.id]} %>
-      <%= f.input :address %>
-      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      <%= f.input :evaluation, as: :radio_buttons, collection: Report::EVALUATION, label: "My experience was:", wrapper: :vertical_collection_inline %>
+      <%= f.association :officer, label: "Officer(s) I interacted with:", collection: Officer.all.map { |officer| [officer.first_name, officer.id]} %>
+      <%= f.input :address, label: "Location of the encounter:" %>
       <%= f.input :content, placeholder: "I was peacefully protesting when..." %>
+      <%= f.input :photos,label: "Upload any photos or videos you have of the encounter:", as: :file, input_html: { multiple: true } %>
 
 
       <fieldset class="form-group">
