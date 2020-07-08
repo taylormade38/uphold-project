@@ -6,7 +6,6 @@ class CitiesController < ApplicationController
       @reports = Report.search_by_tag(params[:query]).where(city: @city)
     else
       @reports = @city.reports
-
       @reports = Report.where.not(latitude: nil, longitude: nil)
       @markers = @reports.map do |report|
         {
