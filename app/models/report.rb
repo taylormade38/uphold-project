@@ -9,4 +9,7 @@ class Report < ApplicationRecord
   validates :city, presence: true
   validates :content, presence: true
   validates :evaluation, inclusion: { in: EVALUATION }
+
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end
