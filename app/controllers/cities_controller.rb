@@ -12,7 +12,6 @@ class CitiesController < ApplicationController
   end
 
   def index
-    @cities = City.all
-    authorize @city
+    @cities = policy_scope(City).order(created_at: :desc)
   end
 end
