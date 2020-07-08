@@ -1,0 +1,67 @@
+.card-report {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-bottom: 6px;
+}
+
+.card-report .card-report-infos > img {
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+}
+
+.card-report h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-report p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-report .card-report-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.card-report-content {
+  display: flex;
+  flex-flow: column;
+
+}
+
+.card-report-infos .card-report-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
+.card-bottom-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-report-tags {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.report-tag-pill {
+  border: 1px solid grey;
+  padding: 4px;
+  border-radius: 110px;
+}
+
+.card-report-user {
+  display: flex;
+  justify-self: right;
+}
