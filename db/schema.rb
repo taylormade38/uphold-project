@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_08_090130) do
+ActiveRecord::Schema.define(version: 2020_07_08_090215) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +42,10 @@ ActiveRecord::Schema.define(version: 2020_07_08_090130) do
     t.string "state"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "use_of_force_incidents"
+    t.integer "use_of_force_weapons"
+    t.integer "use_of_force_unarmed"
+    t.integer "complaints_against_police"
   end
 
   create_table "officers", force: :cascade do |t|
