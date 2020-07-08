@@ -25,6 +25,8 @@ require("channels")
 // External imports
 import "bootstrap";
 import "../plugins/popover_activation";
+import "../plugins/tag_choice";
+
 
 import { autocomplete } from "../components/autocomplete"
 import { initMap } from './map'
