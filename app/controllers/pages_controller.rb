@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     # List of cities
+    @cities = City.all
     # Query Google Search
     # Reference picture link
     # push picture
