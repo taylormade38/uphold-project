@@ -10,6 +10,10 @@ require 'faker'
 # Officer.destroy_all
 # City.destroy_all
 
+5.times do
+  User.create!(email: Faker::Internet.email, password: 'password')
+end
+
 puts "Creating cities..."
 city1 = {name: 'New York City', state: 'New York'}
 city2 = {name: 'Los Angeles', state: 'California'}
@@ -47,13 +51,13 @@ officers.each do |officer|
 
     10.times do
         report = Report.new
-        report.content = Faker::Lorem.sentence
+        report.content = Faker::Lorem.sentence(word_count: 12)
         report.address = Faker::Address.full_address
         report.officer = officer
-        report.user = User.find(1)
+        report.user = User.first
         report.city = City.all.sample
         report.evaluation = %w(positive negative neutral).sample
-        report.save
+        report.save!
     end
 
 end
@@ -75,6 +79,13 @@ tag8 = {name: 'Chokehold', info: 'The officer held me in a chokehold'}
 [ tag1, tag2, tag3, tag4, tag5, tag6, tag7, tag8 ].each do |attributes|
   tag = Tag.create!(attributes)
   puts "Created #{tag.name}"
+end
+
+500.times do
+  report_tag = ReportTag.new
+  report_tag.report = Report.all.sample
+  report_tag.tag = Tag.all.sample
+  report_tag.save!
 end
 
 puts "Finished!"

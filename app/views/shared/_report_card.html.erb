@@ -1,13 +1,21 @@
 <div class="card-report">
   <div class="card-report-infos">
+    <div class="card-report-content">
     <small><%= report.content %></small>
-    <p><%= report.address %></p>
-    <p><%= report.officer.first_name %></p>
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+    <p><i class="fas fa-map-marker-alt"></i> <%= report.address %></p>
+    <p><i class="fas fa-address-card"></i> <%= report.officer.first_name %></p>
+    </div>
+  <img src="https://ktla.com/wp-content/uploads/sites/4/2020/06/GettyImages-1216828423.jpg?w=2560&h=1440&crop=1" />
   </div>
+  <div class="card-bottom-container">
   <div class="card-report-tags">
-    <%= @tags %>
+    <% report.tags.first(3).each do |tag| %>
+      <p class="report-tag-pill"><%= tag.name %></p>
+    <% end %>
+  </div>
+  <div class="card-report-user">
     <h2 class="card-report-name">Anonymous</h2>
     <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-  </div>
+    </div>
+    </div>
 </div>
