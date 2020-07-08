@@ -16,8 +16,10 @@ class CitiesController < ApplicationController
       end
     end
   end
+end
 
   def index
     @cities = policy_scope(City).order(created_at: :desc)
   end
 end
+
