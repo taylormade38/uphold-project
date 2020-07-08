@@ -26,29 +26,31 @@
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
       </div>
-      <div class="flash flash-success">
-        <span><strong>Tags</strong>Racsim Assault Blah</span>
-        <a data-dismiss="alert" aria-label="Close">
-          <i class="fas fa-times"></i>
-        </a>
-      </div>
-      <% @city.reports.each do |report| %>
-       <%= render partial: 'shared/report_card', locals: { report: report } %>
+      <%= form_tag city_path(@city), method: :get, remote: true, id: 'tag-search', class: 'form-inline' do %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+        placeholder: "Search by Tag"
+        %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+        <% end %>
+        <% @reports.each do |report| %>
+        <%= render partial: 'shared/report_card', locals: { report: report } %>
 
-      <% end %>
-      <div class="notification">
-        <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
-        <div class="notification-content">
-          <p><small>9th January</small></p>
-          <p>Lorem ipsum dolor sit amet, <strong>consectetur</strong> adipisicing elit.</p>
+        <% end %>
+        <div class="notification">
+          <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
+          <div class="notification-content">
+            <p><small>9th January</small></p>
+            <p>Lorem ipsum dolor sit amet, <strong>consectetur</strong> adipisicing elit.</p>
+          </div>
+
+          <div class="notification-actions">
+            <a href="#">Edit <i class="fas fa-pencil-alt"></i></a>
+            <a href="#">Delete <i class="far fa-trash-alt"></i></a>
+          </div>
         </div>
 
-        <div class="notification-actions">
-          <a href="#">Edit <i class="fas fa-pencil-alt"></i></a>
-          <a href="#">Delete <i class="far fa-trash-alt"></i></a>
-        </div>
       </div>
-
     </div>
   </div>
-</div>
