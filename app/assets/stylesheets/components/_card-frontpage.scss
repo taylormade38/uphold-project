@@ -50,3 +50,11 @@
 .card-category:hover:after {
   opacity: 1;
 }
+
+.card-description {
+  font-size: 12px;
+  position: absolute;
+  bottom: -1px;
+  left: 10px;
+}
+
