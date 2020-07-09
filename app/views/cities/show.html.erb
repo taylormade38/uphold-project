@@ -45,7 +45,7 @@
         <%= submit_tag "Search", class: "btn btn-primary submit-button" %>
       <% end %>
       <div class="report-container">
-        <% reports = @city.reports.select { |report|  report.address.include?(@city.name)  }  %>
+         <% reports = @city.reports.select { |report|  report.address.include?(@city.name)  }  %>
           <% reports.each do |report| %>
           <%= render partial: 'shared/report_card', locals: { report: report } %>
           <% end %>

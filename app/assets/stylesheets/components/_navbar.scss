@@ -2,7 +2,8 @@
   justify-content: space-between;
   background: transparent;
   padding-top: 0px;
-  transition: 0.5s background-color ease;
+  transition: 0.5s;
+   background-color: ease;
 
   a {
     color: $navbar;
@@ -45,12 +46,12 @@
   }
 }
 
-.link-icon {
+#link-icon {
   display: flex;
   align-items: center;
-  color: black;
+  color: white;
   &:hover {
-    color: black;
+    color: gray;
     text-decoration: none;
   }
   .fas {
