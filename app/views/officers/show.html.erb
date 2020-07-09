@@ -39,26 +39,26 @@
       </div>
       <div class="reports-container">
           <ul class="reports-list list-group list-group-flush">
-              <% @reports.each do |r| %>
+              <% @reports.each do |report| %>
                   <li class="report list-group-item d-flex">
                     <div class="report-evaluation col-3 d-flex align-self-center justify-content-center">
-                        <% if r.evaluation == "positive" %>
+                        <% if report.evaluation == "positive" %>
                             <div class="evaluation btn-success col-6 text-center rounded">
-                                <%= r.evaluation %>
+                                <%= report.evaluation %>
                             </div>
-                        <% elsif r.evaluation == "negative" %>
+                        <% elsif report.evaluation == "negative" %>
                             <div class="evaluation btn-danger col-7 text-center rounded">
-                                <%= r.evaluation %>
+                                <%= report.evaluation %>
                             </div>
-                        <% elsif r.evaluation == "neutral"%>
+                        <% elsif report.evaluation == "neutral"%>
                             <div class="evaluation">
-                                <%= r.evaluation %>
+                                <%= report.evaluation %>
                             </div>
                         <% end %>
                     </div>
                     <div class="report-content col-9 text-left">
-                        <small class="card-text"><%= r.created_at.strftime("%e %b %Y %H:%M:%S%p") %></small>
-                        <p class="card-text"><%= r.content %></p>
+                        <small class="card-text"><%= report.created_at.strftime("%e %b %Y %H:%M:%S%p") %></small>
+                        <p class="card-text"><%= report.content %></p>
                     </div>
                   </li>
             <% end %>

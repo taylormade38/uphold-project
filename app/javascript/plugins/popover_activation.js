@@ -1,3 +1,7 @@
-$(function () {
-  $('[data-toggle="popover"]').popover()
-})
+function initPopover() {
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  })
+}
+
+export { initPopover }
