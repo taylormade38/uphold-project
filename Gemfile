@@ -37,8 +37,6 @@ gem 'omniauth-facebook'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
-gem 'figaro'
-
 gem 'devise'
 
 gem 'faker'
