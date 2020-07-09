@@ -1,2 +1,16 @@
-<h1>Reports#show</h1>
-<p>Find me in app/views/reports/show.html.erb</p>
+<div class="container show">
+  <h2 id="pro-head">Report</h2>
+  <div class="row">
+    <div class="col-md-4 img">
+      <img src="https://ktla.com/wp-content/uploads/sites/4/2020/06/GettyImages-1216828423.jpg?w=2560&h=1440&crop=1" width="250" crop="scale" />
+    </div>
+    <div class="col-md-8 details">
+      <p><%= @report.content %></p>
+      <h5><i class="fas fa-map-marker-alt"></i> <%= @report.address %></h5>
+      <br>
+      <h5><i class="fas fa-address-card"></i> <%= link_to @report.officer.first_name, officer_path(@report.officer) %></h5>
+      <br>
+      Created: <%= @report.created_at.strftime('%A, %d %b %Y %l:%M %p') %>
+    </div>
+  </div>
+</div>

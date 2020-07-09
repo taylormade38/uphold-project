@@ -3,7 +3,7 @@
   background: transparent;
   padding-top: 0px;
   transition: 0.5s;
-   background-color: ease;
+  background-color: ease;
 
   a {
     color: $navbar;
@@ -49,9 +49,9 @@
 #link-icon {
   display: flex;
   align-items: center;
-  color: white;
+  color: black;
   &:hover {
-    color: gray;
+    color: black;
     text-decoration: none;
   }
   .fas {
