@@ -46,6 +46,7 @@
   right: 16px;
   top: -20px;
   width: 40px;
+
 }
 
 .card-bottom-container {
@@ -62,6 +63,7 @@
 .report-tag-pill {
   border: 1px solid grey;
   padding: 4px;
+  margin-bottom: 4px;
   border-radius: 110px;
 }
 
@@ -70,4 +72,20 @@
   justify-self: right;
 }
 
+.product-controls {
+  font-size: 15px;
+  color: #CCCCCC;
+  margin-top: 25px;
+  margin-right: 5px;
+  display: flex;
+  justify-self: right;
+  space-between: 0.5px;
+}
 
+.product-controls:hover {
+  opacity: 0.9;
+}
+.product-controls a {
+  font-size: 15px;
+  color: #CCCCCC;
+}
