@@ -1,5 +1,5 @@
 function autocomplete() {
-  document.addEventListener("DOMContentLoaded", function() {
+
     var reportAddress = document.getElementById('report_address');
 
     if (reportAddress) {
@@ -12,7 +12,6 @@ function autocomplete() {
         }
       });
     }
-  });
 }
 
 export { autocomplete };
