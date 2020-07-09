@@ -66,7 +66,7 @@ end
 
 puts "Creating tags..."
 
-# tags = %w(Physical-Assault Weapon-Used Racist-Remark Racially-Profiled Excessive-Force Verbal-Abuse Chokehold)
+tags = %w(Physical-Assault Weapon-Used Racist-Remark Racially-Profiled Excessive-Force Verbal-Abuse Chokehold)
 
 tag1 = {name: 'Weapon Used', info: 'The officer used a weapon.'}
 tag2 = {name: 'Physical Assault', info: 'The officer physically assaulted me.'}
@@ -82,14 +82,14 @@ tag8 = {name: 'Chokehold', info: 'The officer held me in a chokehold'}
   puts "Created #{tag.name}"
 end
 
-# 500.times do
-#   report_tag = ReportTag.new
-#   report_tag.report = Report.all.sample
-#   report_tag.tag = Tag.all.sample
-#   report_tag.save!
-# end
+500.times do
+  report_tag = ReportTag.new
+  report_tag.report = Report.all.sample
+  report_tag.tag = Tag.all.sample
+  report_tag.save!
+end
 
-# puts "Finished!"
+puts "Finished!"
 
 
 # cities = City.all
