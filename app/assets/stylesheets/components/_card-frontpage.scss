@@ -16,7 +16,9 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   transition: 0.9s;
   float: left;
-  background-size: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .card-category:hover {
@@ -56,5 +58,9 @@
   position: absolute;
   bottom: -1px;
   left: 10px;
+}
+
+.cards-container-frontpage{
+  margin-bottom: 50px;
 }
 

@@ -3,11 +3,12 @@
  <% @cities.each do |city| %>
   <%= link_to city_path(city) do %>
     <div class="col-md-4 mb-3">
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://media.timeout.com/images/105239116/image.jpg)"
-      data-text="UpHold Reports: 123
-      Citizen Complaints: 456
-      New Laws Passed: 24
-      Laws Proposed: 3">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= city.find_photo %>)"
+      data-text="UpHold Reports: <%= city.reports.length %>
+      Formal PD Complaints: <%= city.complaints_against_police %>
+      Use of Force: <%= city.use_of_force_incidents %>
+      Officer Involved Shootings: <%= city.officer_involved_shootings %>
+      New Laws Proposed: <%= rand(1..5).to_i %>">
       <span class="city-card-title"><%= city.name %></span>
       <div class="card-description">
         <p><i class="far fa-bookmark" aria-hidden="true"></i> <%= city.reports.length %> reports today</p>
