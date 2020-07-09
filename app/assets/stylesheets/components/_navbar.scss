@@ -5,10 +5,10 @@
   transition: 0.5s background-color ease;
 
   a {
-    color: white;
+    color: $navbar;
   }
   a:hover {
-    color: white;
+    color: $navbar;
   }
   &.background-white {
     background-color: white;
