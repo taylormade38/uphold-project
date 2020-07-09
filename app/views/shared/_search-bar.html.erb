@@ -1,12 +1,9 @@
-<div class="search-bar-front-page">
-  <div class="container">
-    <%= form_tag cities_path, class: "d-flex", method: :get do %>
-    <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-      placeholder: "Find a City"
-      %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
-      <% end %>
-</div>
-</div>
+<%= form_tag root_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+  params[:query],
+  class: "form-control nav-search-group",
+    id: "nav-search",
+    placeholder: "Find a city by name or state"
+    %>
+    <%= submit_tag "Search", class: "btn ml-2 nav-search-group" %>
+    <% end %>
