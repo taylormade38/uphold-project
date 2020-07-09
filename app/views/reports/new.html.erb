@@ -42,7 +42,7 @@
       <%= f.input :evaluation, as: :radio_buttons, collection: Report::EVALUATION, label: "My experience was:", wrapper: :vertical_collection_inline %>
       <%= f.association :officer, label: "Officer(s) I interacted with:", collection: Officer.all.map { |officer| [officer.first_name, officer.id]} %>
       <%= f.input :address, label: "Location of the encounter:" %>
-      <%= f.input :city_id, label: "City" %>
+      <%= f.association :city, label: "City" %>
       <%= f.input :content, placeholder: "I was peacefully protesting when..." %>
       <%= f.input :photos, label: "📸 Upload photos or videos:", label_html: { class: 'upload-photo'}, as: :file, input_html: { multiple: true, class: 'd-none', id: 'photo-input' } %>
       <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
