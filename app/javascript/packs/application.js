@@ -43,3 +43,5 @@ previewImageOnFileSelect();
 document.addEventListener('turbolinks:load', () => {
   bindSearchForm();
 });
+
+import "controllers"
