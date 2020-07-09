@@ -10,25 +10,25 @@
 # # Officer.destroy_all
 # # City.destroy_all
 
-# 5.times do
-#   User.create!(email: Faker::Internet.email, password: 'password')
-# end
+5.times do
+  User.create!(email: Faker::Internet.email, password: 'password')
+end
 
-# puts "Creating cities..."
-# city1 = {name: 'New York City', state: 'New York'}
-# city2 = {name: 'Los Angeles', state: 'California'}
-# city3 = {name: 'Chicago', state: 'Illinois'}
-# city4 = {name: 'Houston', state: 'Texas'}
-# city5 = {name: 'Phoenix', state: 'Arizona'}
-# city6 = {name: 'Philadelphia', state: 'Pennsylvania'}
-# city7 = {name: 'San Antonio', state: 'Texas'}
-# city8 = {name: 'San Diego', state: 'California'}
+puts "Creating cities..."
+city1 = {name: 'New York City', state: 'New York'}
+city2 = {name: 'Los Angeles', state: 'California'}
+city3 = {name: 'Chicago', state: 'Illinois'}
+city4 = {name: 'Houston', state: 'Texas'}
+city5 = {name: 'Phoenix', state: 'Arizona'}
+city6 = {name: 'Philadelphia', state: 'Pennsylvania'}
+city7 = {name: 'San Antonio', state: 'Texas'}
+city8 = {name: 'San Diego', state: 'California'}
 
-# [ city1, city2, city3, city4, city5, city6, city7, city8 ].each do |attributes|
-#   city = City.create!(attributes)
-#   puts "Created #{city.name}"
-# end
-# puts "Finished!"
+[ city1, city2, city3, city4, city5, city6, city7, city8 ].each do |attributes|
+  city = City.create!(attributes)
+  puts "Created #{city.name}"
+end
+puts "Finished!"
 
 # puts "Creating officers .."
 # 32.times do

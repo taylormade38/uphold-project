@@ -33,6 +33,7 @@ import "../plugins/tag_choice";
 import { autocomplete } from "../components/autocomplete"
 import { initMap } from './map'
 import { previewImageOnFileSelect } from '../components/photo_preview'
+import { initUpdateNavbarOnScroll } from "../dom/dynamicNavbar"
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
