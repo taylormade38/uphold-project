@@ -33,13 +33,21 @@ import "../plugins/tag_choice";
 import { autocomplete } from "../components/autocomplete"
 import { initMap } from './map'
 import { previewImageOnFileSelect } from '../components/photo_preview'
+import { initUpdateNavbarOnScroll } from "../DOM/dynamicNavbar"
+import { initTags } from '../plugins/tag_choice'
+import { initPopover } from '../plugins/popover_activation'
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-autocomplete();
-initMap();
-previewImageOnFileSelect();
+
 
 document.addEventListener('turbolinks:load', () => {
   bindSearchForm();
+  autocomplete();
+  initMap();
+  previewImageOnFileSelect();
+  initTags();
+  initPopover();
 });
+
+import "controllers"
