@@ -1,10 +1,9 @@
-
-<div class="search-bar-front-page">
-  <div class="container">
-   <form class="form-inline ">
-   <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
-    aria-label="Search">
-    <i class="fas fa-search" aria-hidden="true"></i>
-    </form>
-  </div>
-</div>
+<%= form_tag root_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+  params[:query],
+  class: "form-control nav-search-group",
+    id: "nav-search",
+    placeholder: "Find a city by name or state"
+    %>
+    <%= submit_tag "Search", class: "btn ml-2 nav-search-group" %>
+    <% end %>

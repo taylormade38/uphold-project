@@ -17,6 +17,12 @@ class CitiesController < ApplicationController
   end
 
   def index
-    @cities = policy_scope(City).order(created_at: :desc)
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR state ILIKE :query"
+      @cities = policy_scope(City).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @cities = policy_scope(City).order(created_at: :desc)
+    end
   end
+
 end
