@@ -6,7 +6,7 @@
     </div>
   </div>
 
-
+<div class="index-search">
   <%= form_tag cities_path, method: :get, class: "d-flex" do %>
   <%= text_field_tag :query,
   params[:query],
@@ -16,7 +16,7 @@
     %>
     <%= submit_tag "Search", class: "btn ml-2 nav-search-group" %>
     <% end %>
-
+</div>
 
 
     <div class="container cards-container" id="cities">
