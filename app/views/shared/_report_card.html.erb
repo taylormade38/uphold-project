@@ -1,23 +1,33 @@
-    <div class="card-report">
-      <div class="card-report-infos">
-        <div class="card-report-content">
-        <small><%= report.content %></small>
-        <%= link_to "See More", report_path(report) %>
-        <p><i class="fas fa-map-marker-alt"></i> <%= report.address %></p>
-        <p><i class="fas fa-address-card"></i> <%= link_to report.officer.first_name, officer_path(report.officer) %></p>
-        </div>
-      <img src="https://ktla.com/wp-content/uploads/sites/4/2020/06/GettyImages-1216828423.jpg?w=2560&h=1440&crop=1" />
+<div class="card-report">
+    <div class="report-info">
+        <div class="report-content-container d-flex">
+            <% if report.evaluation == "positive" %>
+                <div class="report-evaluation d-flex justify-content-center align-items-center col-3 text-success">
+                    <p><%= report.evaluation %></p>
+                </div>
+            <% elsif report.evaluation == "negative" %>
+                <div class="report-evaluation d-flex justify-content-center align-items-center col-3 text-success">
+                    <p><%= report.evaluation %></p>
+                </div>
+            <% elsif report.evaluation == "netural" %>
+                <div class="report-evaluation d-flex justify-content-center align-items-center col-3 text-secondary">
+                    <p><%= report.evaluation %></p>
+                </div>
+            <% end %>
+          <img src="https://ktla.com/wp-content/uploads/sites/4/2020/06/GettyImages-1216828423.jpg?w=2560&h=1440&crop=1" />
       </div>
-      <div class="card-bottom-container">
-      <div class="card-report-tags">
-        <% report.tags.each do |tag| %>
-          <p class="report-tag-pill"><%= tag.name %></p>
-        <% end %>
-      </div>
-      <div class="card-report-user">
-        <h2 class="card-report-name">Anonymous</h2>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+            <div class="report-content col-9">
+             <p><i class="fas fa-address-card"><%= link_to "#{report.officer.first_name} #{report.officer.last_name}", officer_path(report.officer) %></p>
+                <small><%= report.created_at.strftime("%e %b %Y %H:%M:%S%p") %></small>
+              <p><small><%= report.content.first(50) %>...</small> <%= link_to "See More", report_path(report) %></p>
+                <% report.report_tags.each do |rt| %>
+                    <div class="report-tag-bubble">
+                        <p><%= acronymize(rt.tag.name) %></p>
+                    </div>
+                <% end %>
+            </div>
         </div>
-        </div>
+        <div class="report-user-info"></div>
     </div>
+</div>
 
