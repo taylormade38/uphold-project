@@ -3,7 +3,6 @@
   <div class="container">
     <h2>Dashboard</h2>
     <div class="row">
-
       <div class="col-12 col-md-6 col-lg-4" >
         <div class="card bg-light">
           <p>Profile</p>
@@ -11,21 +10,17 @@
           <td><%= current_user.last_name %></td>
           <br>
           <td><%= current_user.email %></td>
-
         </div>
       </div>
-
-      <div class="col-12 col-md-6 col-lg-8 reports-container">
-
+      <div class="col-12 col-md-6 col-lg-8">
         <div class="card bg-light">
-
           <p>Your Submissions</p>
+          <div class="reports-container">
           <% @reports.each do |report| %>
-
             <%= render partial: "shared/report_card", locals: { report: report } %>
           <% end %>
+            </div>
           </div>
-
       </div>
     </div>
   </div>
