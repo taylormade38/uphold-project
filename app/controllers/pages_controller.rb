@@ -5,6 +5,11 @@ class PagesController < ApplicationController
     # List of cities
     @cities = City.all
     # Query Google Search
+    if params[:query].present?
+      @cities = City.where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @cities = City.all
+    end
     # Reference picture link
     # push picture
     @user = current_user

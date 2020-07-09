@@ -6,10 +6,10 @@
    background-color: ease;
 
   a {
-    color: black;
+    color: $navbar;
   }
   a:hover {
-    color: white;
+    color: $navbar;
   }
   &.background-white {
     background-color: white;
