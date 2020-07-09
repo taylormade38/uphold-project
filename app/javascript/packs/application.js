@@ -52,20 +52,20 @@ document.addEventListener('turbolinks:load', () => {
   initPopover();
   initUpdateNavbarOnScroll();
   initSweetalert('#sweet-alert-email', {
-  title: "Thanks For Your Report!",
-  text: "We understand that having a negative encounter with the police can cause serious emotional distress. If you'd like us to send you an email with mental health or legal resources in your area, add your email below. (Or, check out our 'Resources' page.)" ,
-  content: {
-    element: "input",
-    attributes: {
-      placeholder: "Enter Your Email",
-      type: "email",
+    title: "Thanks For Your Report!",
+    text: "We understand that having a negative encounter with the police can cause serious emotional distress. If you'd like us to send you an email with mental health or legal resources in your area, add your email below. (Or, check out our 'Resources' page.)" ,
+    content: {
+      element: "input",
+      attributes: {
+        placeholder: "Enter Your Email",
+        type: "email",
+      },
     },
-  },
-  buttons: {
-    cancel: "No, Thanks",
-    confirm: "Yes, Please",
-  }
-});
+    buttons: {
+      cancel: "No, Thanks",
+      confirm: "Yes, Please",
+    }
+  });
 });
 
 import "controllers"
