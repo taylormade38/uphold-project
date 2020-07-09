@@ -13,13 +13,15 @@
         </div>
       </div>
       <div class="col-12 col-md-6 col-lg-8 reports-container">
+      <div class="col-12 col-md-6 col-lg-8">
         <div class="card bg-light">
           <p>Your Submissions</p>
+          <div class="reports-container">
           <% @reports.each do |report| %>
             <%= render partial: "shared/report_card", locals: { report: report } %>
           <% end %>
+            </div>
           </div>
-
       </div>
     </div>
   </div>
