@@ -36,6 +36,8 @@ import { previewImageOnFileSelect } from '../components/photo_preview'
 import { initUpdateNavbarOnScroll } from "../DOM/dynamicNavbar"
 import { initTags } from '../plugins/tag_choice'
 import { initPopover } from '../plugins/popover_activation'
+import { initSweetalert } from '../plugins/init_sweetalert';
+
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -49,6 +51,17 @@ document.addEventListener('turbolinks:load', () => {
   initTags();
   initPopover();
   initUpdateNavbarOnScroll();
+  initSweetalert('#sweet-alert-email', {
+  title: "Thanks For Your Report! Before you go...",
+  text: "Would you like some support resources?",
+  content: {
+    element: "input",
+    attributes: {
+      placeholder: "Enter Your Email",
+      type: "email",
+    },
+  },
+});
 });
 
 import "controllers"
