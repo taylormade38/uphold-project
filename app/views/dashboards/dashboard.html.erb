@@ -13,21 +13,41 @@
           <td><%= current_user.email %></td>
           <br>
           <hr class="divider mt-1 mb-2" />
-          <p>Your activity</p>
         </div>
       </div>
-      <div class="col-12 col-md-6 col-lg-8 reports-container">
-      <div class="col-12 col-md-6 col-lg-8">
-        <div class="card dash-cards">
-          <p>Your Submissions</p>
-          <hr class="divider mt-1 mb-2" />
-          <div class="reports-container">
-          <% @reports.each do |report| %>
-            <%= render partial: "shared/report_card", locals: { report: report } %>
-          <% end %>
-            </div>
+      <div class="tabs">
+        <ul class="list-inline tabs-underlined">
+          <li>
+            <a href="#pills-activity" class="tab-underlined active" id="pills-activity">Your Activty</a>
+          </li>
+          <li>
+            <a href="#pills-submissions" class="tab-underlined" id="pills-submissions">Your Report Submissions</a>
+          </li>
+        </ul>
+      <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-activity" role="tabpanel" aria-labelledby="pills-activity-tab">
+          <div class="row">
+            <p>You don't have any activity to show. <%= link_to "Browse city reports here!", cities_path %></p>
           </div>
+        </div>
       </div>
+      <div class="tab-pane fade" id="pills-submissions" role="tabpanel" aria-labelledby="pills-submissions-tab">
+        <div class="row">
+          <% if @reports.empty? %>
+          <p>You haven't made any reports yet. <%= link_to "Browse city reports here!", cities_path %></p>
+          <% else %>
+          <% @reports.each do |report| %>
+          <%= link_to report_path(report) do %>
+          <div class="col-md-4">
+            <%= render partial: 'shared/report_card', locals: { report: report } %>
+            <% end %>
+          </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
     </div>
   </div>
 </div>
