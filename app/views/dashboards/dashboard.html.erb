@@ -6,18 +6,26 @@
 
       <div class="col-12 col-md-6 col-lg-4" >
         <div class="card bg-light">
+          <p>Profile</p>
           <td><%= current_user.first_name %></td>
           <td><%= current_user.last_name %></td>
           <br>
           <td><%= current_user.email %></td>
-          <td></td>
+
         </div>
       </div>
-      <div class="col-12 col-md-6 col-lg-8">
+
+      <div class="col-12 col-md-6 col-lg-8 reports-container">
+
         <div class="card bg-light">
 
-          <td><%= current_user.reports %></td>
-        </div>
+          <p>Your Submissions</p>
+          <% @reports.each do |report| %>
+
+            <%= render partial: "shared/report_card", locals: { report: report } %>
+          <% end %>
+          </div>
+
       </div>
     </div>
   </div>
