@@ -4,7 +4,7 @@
     <h2>Dashboard</h2>
     <div class="row">
       <div class="col-12 col-md-6 col-lg-4" >
-        <div class="card bg-light">
+        <div class="card">
           <p>Profile</p>
           <td><%= current_user.first_name %></td>
           <td><%= current_user.last_name %></td>
@@ -13,7 +13,7 @@
         </div>
       </div>
       <div class="col-12 col-md-6 col-lg-8">
-        <div class="card bg-light">
+        <div class="card dash-cards">
           <p>Your Submissions</p>
           <div class="reports-container">
           <% @reports.each do |report| %>
