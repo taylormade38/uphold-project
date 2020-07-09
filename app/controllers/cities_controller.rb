@@ -24,4 +24,5 @@ class CitiesController < ApplicationController
       @cities = policy_scope(City).order(created_at: :desc)
     end
   end
+
 end
