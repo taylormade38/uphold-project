@@ -3,7 +3,7 @@
  <% @cities.each do |city| %>
   <%= link_to city_path(city) do %>
     <div class="col-md-4 mb-3">
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://media.timeout.com/images/105239116/image.jpg)"
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= city.find_photo %>)"
       data-text="UpHold Reports: 123
       Citizen Complaints: 456
       New Laws Passed: 24
