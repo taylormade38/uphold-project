@@ -2,7 +2,7 @@
   <div class="row">
  <% @cities.each do |city| %>
   <%= link_to city_path(city) do %>
-    <div class="col-md-4 mb-3">
+    <div class="col-md-4 mb-3 front-card-container">
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= city.find_photo %>)"
       data-text="UpHold Reports: <%= city.reports.length %>
       Formal PD Complaints: <%= city.complaints_against_police %>
@@ -19,5 +19,3 @@
     <% end %>
   </div>
 </div>
-
-
