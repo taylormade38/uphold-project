@@ -1,10 +1,11 @@
+
 <%= link_to reports_path(report) %>
     <div class="card-report">
       <div class="card-report-infos">
         <div class="card-report-content">
         <small><%= report.content %></small>
         <p><i class="fas fa-map-marker-alt"></i> <%= report.address %></p>
-        <p><i class="fas fa-address-card"></i> <%= report.officer.first_name %></p>
+        <p><i class="fas fa-address-card"></i> <%= link_to report.officer.first_name, officer_path(report.officer) %></p>
         </div>
       <img src="https://ktla.com/wp-content/uploads/sites/4/2020/06/GettyImages-1216828423.jpg?w=2560&h=1440&crop=1" />
       </div>
