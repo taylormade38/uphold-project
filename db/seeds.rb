@@ -7,6 +7,7 @@
 # #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 # #   Character.create(name: 'Luke', movie: movies.first)
 puts "Cleaning database..."
+Report.destroy_all
 Officer.destroy_all
 City.destroy_all
 
@@ -31,7 +32,7 @@ end
 puts "Finished!"
 
 puts "Creating officers .."
-32.times do
+5.times do
     Officer.create(
         first_name: Faker::Name.male_first_name,
         last_name: Faker::Name.last_name,
@@ -47,10 +48,10 @@ end
 # HAROLD's CODE
 
 officers = Officer.all
-
+puts "Creating Reports..."
 officers.each do |officer|
 
-    10.times do
+    3.times do
         report = Report.new
         report.content = Faker::Lorem.sentence(word_count: 12)
         report.address = Faker::Address.full_address

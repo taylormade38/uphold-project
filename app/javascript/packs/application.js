@@ -48,6 +48,7 @@ document.addEventListener('turbolinks:load', () => {
   previewImageOnFileSelect();
   initTags();
   initPopover();
+  initUpdateNavbarOnScroll();
 });
 
 import "controllers"
