@@ -52,8 +52,8 @@ document.addEventListener('turbolinks:load', () => {
   initPopover();
   initUpdateNavbarOnScroll();
   initSweetalert('#sweet-alert-email', {
-  title: "Thanks For Your Report! Before you go...",
-  text: "Would you like some support resources?",
+  title: "Thanks For Your Report!",
+  text: "We understand that having a negative encounter with the police can cause serious emotional distress. If you'd like us to send you an email with mental health or legal resources in your area, add your email below. (Or, check out our 'Resources' page.)" ,
   content: {
     element: "input",
     attributes: {
@@ -61,6 +61,10 @@ document.addEventListener('turbolinks:load', () => {
       type: "email",
     },
   },
+  buttons: {
+    cancel: "No, Thanks",
+    confirm: "Yes, Please",
+  }
 });
 });
 
