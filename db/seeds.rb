@@ -198,19 +198,20 @@ officers.each do |officer|
 # puts "Finished!"
 
 
-# cities = City.all
+cities = City.all
 
-# cities.each do |city|
-#     puts "populating database"
-#     city.use_of_force_incidents = rand(1000..5000).to_i
+cities.each do |city|
+    puts "populating database"
+    city.use_of_force_incidents = rand(1000..5000).to_i
+    city.officer_involved_shootings = rand(50..500).to_i
+    city.officer_involved_killings = rand(50..400).to_i
+    city.use_of_force_weapons = rand(500..1000).to_i
+    city.use_of_force_unarmed = city.use_of_force_incidents - city.use_of_force_weapons
+    city.complaints_against_police = city.use_of_force_incidents - rand(500..700).to_i
+    city.save!
 
-#     city.use_of_force_weapons = rand(500..1000).to_i
-#     city.use_of_force_unarmed = city.use_of_force_incidents - city.use_of_force_weapons
-#     city.complaints_against_police = city.use_of_force_incidents - rand(500..700).to_i
-#     city.save!
 
-
-# end
+end
 
 
 
