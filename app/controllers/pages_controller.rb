@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home ]
+  skip_before_action :authenticate_user!, only: :home
 
   def home
     # List of cities
@@ -7,5 +7,6 @@ class PagesController < ApplicationController
     # Query Google Search
     # Reference picture link
     # push picture
+    @user = current_user
   end
 end
