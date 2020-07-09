@@ -1,6 +1,6 @@
 
 
-<div class="container report-container">
+<div class="container new-report-container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 offset-sm-1 col-lg-10 offset-lg-1">
       <h1>Report Do's and Don'ts</h1>
@@ -44,7 +44,8 @@
       <%= f.input :address, label: "Location of the encounter:" %>
       <%= f.input :city_id, label: "City" %>
       <%= f.input :content, placeholder: "I was peacefully protesting when..." %>
-      <%= f.input :photos,label: "Upload any photos or videos you have of the encounter:", as: :file, input_html: { multiple: true } %>
+      <%= f.input :photos, label: "📸 Upload photos or videos:", label_html: { class: 'upload-photo'}, as: :file, input_html: { multiple: true, class: 'd-none', id: 'photo-input' } %>
+      <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
 
 
       <fieldset class="form-group">

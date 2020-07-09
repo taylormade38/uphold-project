@@ -102,6 +102,7 @@ puts "Finished!"
 #     city.complaints_against_police = city.use_of_force_incidents - rand(500..700).to_i
 #     city.save!
 
+
 # end
 
 
