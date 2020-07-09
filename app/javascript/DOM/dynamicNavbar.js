@@ -1,5 +1,5 @@
 const initUpdateNavbarOnScroll = () => {
-  const navbar = document.querySelector('.navbar');
+  const navbar = document.querySelector('.home-navbar');
   if (navbar) {
     window.addEventListener('scroll', () => {
       if (window.scrollY >= 550) {
