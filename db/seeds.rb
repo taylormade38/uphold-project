@@ -43,7 +43,8 @@ end
 
 
 
-# # HAROLD's CODE
+
+# HAROLD's CODE
 
 officers = Officer.all
 
@@ -81,18 +82,14 @@ tag8 = {name: 'Chokehold', info: 'The officer held me in a chokehold'}
   puts "Created #{tag.name}"
 end
 
-reports = Report.all
+# 500.times do
+#   report_tag = ReportTag.new
+#   report_tag.report = Report.all.sample
+#   report_tag.tag = Tag.all.sample
+#   report_tag.save!
+# end
 
-reports.each do |report|
-    5.times do
-      report_tag = ReportTag.new
-      report_tag.report = report
-      report_tag.tag = Tag.all.sample
-      report_tag.save!
-    end
-end
-
-
+# puts "Finished!"
 
 
 # cities = City.all
@@ -105,6 +102,7 @@ end
 #     city.use_of_force_unarmed = city.use_of_force_incidents - city.use_of_force_weapons
 #     city.complaints_against_police = city.use_of_force_incidents - rand(500..700).to_i
 #     city.save!
+
 
 # end
 
