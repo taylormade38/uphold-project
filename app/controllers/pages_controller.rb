@@ -6,9 +6,10 @@ class PagesController < ApplicationController
     @cities = City.all
     # Query Google Search
     if params[:query].present?
-      @cities = City.where("name ILIKE ?", "%#{params[:query]}%")
+      sql_query = "name ILIKE :query OR state ILIKE :query"
+      @cities = policy_scope(City).where(sql_query, query: "%#{params[:query]}%")
     else
-      @cities = City.all
+      @cities = policy_scope(City).order(created_at: :desc)
     end
     # Reference picture link
     # push picture
