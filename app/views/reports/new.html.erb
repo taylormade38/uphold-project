@@ -80,6 +80,8 @@
         </button>
       </div>
       <div class="modal-body">
+        <p>We understand that having a negative interaction with the police can be distressing. 😰 If you'd like, we can send you an email filled with mental health and legal resources available in your city. 💪🏽 Simply input your city below. (If you choose to skip this for now, you can always reference our 'Resources' page 🗂.)</p>
+
         <%= simple_form_for(current_user, as: current_user, url: registration_path(current_user), html: { method: :put }) do |f| %>
         <%= f.error_notification %>
 
@@ -87,15 +89,15 @@
           <%= f.association :city, label: "City" %>
         </div>
 
-        <div class="form-actions">
-          <%= f.button :submit, "Update" %>
-        </div>
-        <% end %>
+
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Skip for Now</button>
+        <div class="form-actions">
+          <%= f.button :submit, "Yes, please!", class: "btn btn-primary" %>
+        </div>
+        <% end %>
       </div>
     </div>
   </div>
