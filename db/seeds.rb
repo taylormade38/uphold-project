@@ -68,20 +68,20 @@ end
 
 
 
-officers = Officer.all
-puts "Creating Reports..."
-officers.each do |officer|
+# officers = Officer.all
+# puts "Creating Reports..."
+# officers.each do |officer|
 
-    3.times do
-        report = Report.new
-        report.content = Faker::Lorem.sentence(word_count: 12)
-        report.address = Faker::Address.full_address
-        report.officer = officer
-        report.user = User.first
-        report.city = City.all.sample
-        report.evaluation = %w(positive negative neutral).sample
-        report.save!
-    end
+#     3.times do
+#         report = Report.new
+#         report.content = Faker::Lorem.sentence(word_count: 12)
+#         report.address = Faker::Address.full_address
+#         report.officer = officer
+#         report.user = User.first
+#         report.city = City.all.sample
+#         report.evaluation = %w(positive negative neutral).sample
+#         report.save!
+#     end
 
 # [ city1, city2, city3, city4, city5, city6, city7, city8 ].each do |attributes|
 
@@ -188,7 +188,7 @@ officers.each do |officer|
 #   puts "Created #{tag.name}"
 # end
 
-# 500.times do
+# 50.times do
 #   report_tag = ReportTag.new
 #   report_tag.report = Report.all.sample
 #   report_tag.tag = Tag.all.sample
@@ -198,20 +198,20 @@ officers.each do |officer|
 # puts "Finished!"
 
 
-cities = City.all
+# cities = City.all
 
-cities.each do |city|
-    puts "populating database"
-    city.use_of_force_incidents = rand(1000..5000).to_i
-    city.officer_involved_shootings = rand(50..500).to_i
-    city.officer_involved_killings = rand(50..400).to_i
-    city.use_of_force_weapons = rand(500..1000).to_i
-    city.use_of_force_unarmed = city.use_of_force_incidents - city.use_of_force_weapons
-    city.complaints_against_police = city.use_of_force_incidents - rand(500..700).to_i
-    city.save!
+# cities.each do |city|
+#     puts "populating database"
+#     city.use_of_force_incidents = rand(1000..5000).to_i
+#     city.officer_involved_shootings = rand(50..500).to_i
+#     city.officer_involved_killings = rand(50..400).to_i
+#     city.use_of_force_weapons = rand(500..1000).to_i
+#     city.use_of_force_unarmed = city.use_of_force_incidents - city.use_of_force_weapons
+#     city.complaints_against_police = city.use_of_force_incidents - rand(500..700).to_i
+#     city.save!
 
 
-end
+# end
 
 
 
