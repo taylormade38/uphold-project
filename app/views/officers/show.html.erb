@@ -1,5 +1,4 @@
-
-
+<div class="container padding-top-xl">
 <div class="row officer-personal-info-container d-flex flex-row w-100 h-25 bg-white">
 
     <div class="officer-picture col-6" style="width: 18rem;">
@@ -39,26 +38,26 @@
       </div>
       <div class="reports-container">
           <ul class="reports-list list-group list-group-flush">
-              <% @reports.each do |report| %>
+              <% @reports.each do |r| %>
                   <li class="report list-group-item d-flex">
                     <div class="report-evaluation col-3 d-flex align-self-center justify-content-center">
-                        <% if report.evaluation == "positive" %>
+                        <% if r.evaluation == "positive" %>
                             <div class="evaluation btn-success col-6 text-center rounded">
-                                <%= report.evaluation %>
+                                <%= r.evaluation %>
                             </div>
-                        <% elsif report.evaluation == "npegative" %>
+                        <% elsif r.evaluation == "negative" %>
                             <div class="evaluation btn-danger col-7 text-center rounded">
-                                <%= report.evaluation %>
+                                <%= r.evaluation %>
                             </div>
-                        <% elsif report.evaluation == "neutral"%>
+                        <% elsif r.evaluation == "neutral"%>
                             <div class="evaluation">
-                                <%= report.evaluation %>
+                                <%= r.evaluation %>
                             </div>
                         <% end %>
                     </div>
                     <div class="report-content col-9 text-left">
-                        <small class="card-text"><%= report.created_at.strftime("%e %b %Y %H:%M:%S%p") %></small>
-                        <p class="card-text"><%= report.content %></p>
+                        <small class="card-text"><%= r.created_at.strftime("%e %b %Y %H:%M:%S%p") %></small>
+                        <p class="card-text"><%= r.content %></p>
                     </div>
                   </li>
             <% end %>
@@ -66,4 +65,4 @@
       </div>
     </div>
 </div>
-
+</div>
