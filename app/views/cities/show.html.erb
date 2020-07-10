@@ -26,7 +26,7 @@
         <div class="tab-pane fade show active" id="statistics" role="tabpanel" aria-labelledby="statistics-tab">Statistics go here</div>
         <!-- Reports + Find by Tags -->
         <div class="tab-pane fade" id="reports" role="tabpanel" aria-labelledby="reports-tab">
-          <%= form_tag city_path(@city), method: :get, remote: true, id: 'tag-search', class: 'form-inline search-bar' do %>
+          <%= form_tag city_path(@city), method: :get, remote: true, id: 'tag-search', class: 'form-inline search-bar', id: "tag-search" do %>
             <%= text_field_tag :query,
               params[:query],
               class: "form-control",

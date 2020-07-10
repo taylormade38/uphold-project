@@ -24,7 +24,7 @@ require("channels")
 
 // External imports
 import "bootstrap";
-import {bindSearchForm} from '../components/reload_search_turbolinks';
+import { bindSearchForm } from '../components/reload_search_turbolinks';
 
 import "../plugins/popover_activation";
 import "../plugins/tag_choice";
