@@ -61,7 +61,7 @@
 
         </fieldset>
         <%= simple_fields_for :other do |o| %>
-        <%= o.input :user_city %>
+        <%= o.input :user_city, as: :hidden %>
         <% end %>
         <%= f.submit "Submit Your Report", class: "btn btn-dark", id: "submit-report" ,data: {toggle: "modal", target: "#exampleModal"} %>
         <% end %>
