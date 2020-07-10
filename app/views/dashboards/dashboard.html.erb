@@ -15,39 +15,38 @@
           <hr class="divider mt-1 mb-2" />
         </div>
       </div>
-      <div class="tabs">
-        <ul class="list-inline tabs-underlined">
-          <li>
-            <a href="#pills-activity" class="tab-underlined active" id="pills-activity">Your Activty</a>
+      <div class="tabs col-md-6 col-lg-8">
+        <ul class="nav nav-pills mb-3 tabs-underlined" id="pills-tab" role="tablist">
+          <li class="nav-item">
+            <a class="tab-underlined active" id="pills-activity-tab" data-toggle="pill" href="#pills-activity" role="tab" aria-controls="pills-activity" aria-selected="true">Your Activity</a>
           </li>
-          <li>
-            <a href="#pills-submissions" class="tab-underlined" id="pills-submissions">Your Report Submissions</a>
+          <li class="nav-item">
+            <a class="tab-underlined" id="pills-report-tab" data-toggle="pill" href="#pills-report" role="tab" aria-controls="pills-report" aria-selected="false">Your reports</a>
           </li>
         </ul>
-      <div class="tab-content" id="pills-tabContent">
-        <div class="tab-pane fade show active" id="pills-activity" role="tabpanel" aria-labelledby="pills-activity-tab">
-          <div class="row">
-            <p>You don't have any activity to show. <%= link_to "Browse city reports here!", cities_path %></p>
+        <div class="tab-content" id="pills-tabContent">
+          <div class="tab-pane fade show active" id="pills-activity" role="tabpanel" aria-labelledby="pills-activity-tab">
+            <div class="row">
+              <p>You don't have any activity to show. <%= link_to "Browse city reports here!", cities_path %></p>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="pills-report" role="tabpanel" aria-labelledby="pills-report-tab">Report
+            <div class="row">
+              <% if @reports.empty? %>
+              <p>You haven't made any reports yet. <%= link_to "Browse city reports here!", cities_path %></p>
+              <% else %>
+              <% @reports.each do |report| %>
+              <%= link_to report_path(report) do %>
+              <div class="col">
+                <%= render partial: 'shared/report_card', locals: { report: report } %>
+                <% end %>
+              </div>
+              <% end %>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
-      <div class="tab-pane fade" id="pills-submissions" role="tabpanel" aria-labelledby="pills-submissions-tab">
-        <div class="row">
-          <% if @reports.empty? %>
-          <p>You haven't made any reports yet. <%= link_to "Browse city reports here!", cities_path %></p>
-          <% else %>
-          <% @reports.each do |report| %>
-          <%= link_to report_path(report) do %>
-          <div class="col-md-4">
-            <%= render partial: 'shared/report_card', locals: { report: report } %>
-            <% end %>
-          </div>
-          <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-
     </div>
   </div>
 </div>
