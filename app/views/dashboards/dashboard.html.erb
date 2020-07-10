@@ -1,15 +1,16 @@
 
 <div class="dashboard-container">
   <div class="container">
-    <h2>Dashboard</h2>
+    <h2 style="text-align: center;">Dashboard</h2>
+    <h2>Profile</h2>
     <div class="row">
       <div class="col-12 col-md-6 col-lg-4" >
         <div class="card">
-          <p>Profile</p>
+          <img class="avatar" src="<%= current_user.facebook_picture_url %>">
           <hr class="divider mt-1 mb-2" />
           <td><%= current_user.first_name %></td>
           <td><%= current_user.last_name %></td>
-          <br>
+          <hr class="divider mt-1 mb-2" />
           <td><%= current_user.email %></td>
           <br>
           <hr class="divider mt-1 mb-2" />
