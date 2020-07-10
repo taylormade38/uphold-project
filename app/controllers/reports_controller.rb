@@ -9,11 +9,16 @@ class ReportsController < ApplicationController
   def create
     @report = Report.new(report_params)
     authorize @report
+    unless params[:other][:user_city] == ""
+      city = City.find(params[:other][:user_city])
+      current_user.city = city
+      current_user.save
+    end
     @report.user = current_user
     @report.city = City.find(params[:report][:city_id])
     @report.officer = Officer.find(params[:report][:officer_id])
     if @report.save!
-
+      redirect_to city_path(@report.city)
     else
       render :new
     end

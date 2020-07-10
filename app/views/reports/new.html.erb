@@ -60,8 +60,10 @@
           </div>
 
         </fieldset>
-
-        <%= f.submit "Submit Your Report", class: "btn btn-dark", data: {toggle: "modal", target: "#exampleModal"} %>
+        <%= simple_fields_for :other do |o| %>
+        <%= o.input :user_city %>
+        <% end %>
+        <%= f.submit "Submit Your Report", class: "btn btn-dark", id: "submit-report" ,data: {toggle: "modal", target: "#exampleModal"} %>
         <% end %>
       </div>
 
@@ -82,22 +84,23 @@
       <div class="modal-body">
         <p>We understand that having a negative interaction with the police can be distressing. 😰 If you'd like, we can send you an email filled with mental health and legal resources available in your city. 💪🏽 Simply input your city below. (If you choose to skip this for now, you can always reference our 'Resources' page 🗂.)</p>
 
-        <%= simple_form_for(current_user, as: current_user, url: registration_path(current_user), html: { method: :put }) do |f| %>
-        <%= f.error_notification %>
 
+        <%= form_with(url: "#") do %>
+        <% cities_array = City.all.map { |city| [city.name, city.id] } %>
         <div class="form-inputs">
-          <%= f.association :city, label: "City" %>
-        </div>
-
+          <select name="" id="select-city-options">
+          <%= options_for_select(cities_array) %>
+          </select>
+          </div>
+          <% end %>
 
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Skip for Now</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="skip">Skip for Now</button>
         <div class="form-actions">
-          <%= f.button :submit, "Yes, please!", class: "btn btn-primary" %>
+          <button class="btn btn-primary" id="yes-please">Yes, please!</button>
         </div>
-        <% end %>
       </div>
     </div>
   </div>
