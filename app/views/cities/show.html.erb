@@ -13,42 +13,33 @@
       </div>
     </div>
     <div class="col-md-6">
-      <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <ul class="nav nav-tabs my-2 justify-content-center" id="myTab" role="tablist">
         <li class="nav-item">
-          <a class="nav-link active" id="overview-tab" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Overview</a>
+          <a class="nav-link active" id="statistics-tab" data-toggle="tab" href="#statistics" role="tab" aria-controls="statistics" aria-selected="true">By the numbers</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="shootings-tab" data-toggle="tab" href="#shootings" role="tab" aria-controls="shootings" aria-selected="false">Shootings</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="force-tab" data-toggle="tab" href="#force" role="tab" aria-controls="force" aria-selected="false">Use of Force</a>
-        </li>
-         <li class="nav-item">
-          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profiling</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="progress-tab" data-toggle="tab" href="#progress" role="tab" aria-controls="progress" aria-selected="false">Progress</a>
+          <a class="nav-link" id="reports-tab" data-toggle="tab" href="#reports" role="tab" aria-controls="reports" aria-selected="false">Reports</a>
         </li>
       </ul>
       <div class="tab-content" id="statTabContent">
-        <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">Overview</div>
-        <div class="tab-pane fade" id="shootings" role="tabpanel" aria-labelledby="shootings-tab">Shootings</div>
-        <div class="tab-pane fade" id="force" role="tabpanel" aria-labelledby="force-tab">Use of Force</div>
-        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">Profiling</div>
-        <div class="tab-pane fade" id="progress" role="tabpanel" aria-labelledby="progress-tab">Progress</div>
-      </div>
-      <%= form_tag city_path(@city), method: :get, remote: true, id: 'tag-search', class: 'form-inline search-bar' do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Search by Tag"
-        %>
-        <%= submit_tag "Search", class: "btn btn-primary submit-button" %>
-      <% end %>
-      <div class="report-container">
-          <% @reports.each do |report| %>
-            <%= render partial: 'shared/report_card', locals: { report: report } %>
+        <!-- Statistics of reports -->
+        <div class="tab-pane fade show active" id="statistics" role="tabpanel" aria-labelledby="statistics-tab">Statistics go here</div>
+        <!-- Reports + Find by Tags -->
+        <div class="tab-pane fade" id="reports" role="tabpanel" aria-labelledby="reports-tab">
+          <%= form_tag city_path(@city), method: :get, remote: true, id: 'tag-search', class: 'form-inline search-bar' do %>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Search by Tag"
+            %>
+            <%= submit_tag "Search", class: "btn btn-primary submit-button" %>
           <% end %>
+          <div class="report-container">
+              <% @reports.each do |report| %>
+                <%= render partial: 'shared/report_card', locals: { report: report } %>
+              <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
