@@ -1,6 +1,8 @@
 <div class="navbar <%= params[:action] != 'home' ? 'background-white navbar-bottom' : 'home-navbar'%> navbar-expand-sm navbar-light navbar-uphold fixed-top">
   <%= link_to root_path, id: "link-icon" do %>
+  <div class="logo">
   <i class="fas fa-fist-raised"></i><span class="title-bar">UpHold</span>
+  </div>
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
