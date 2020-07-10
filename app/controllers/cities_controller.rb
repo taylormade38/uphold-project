@@ -28,8 +28,6 @@ class CitiesController < ApplicationController
       lat: report.latitude,
       lng: report.longitude
     }
+    end
   end
-
-  end
-
 end

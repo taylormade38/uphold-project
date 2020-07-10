@@ -14,7 +14,7 @@
       <div class="card-report-tags">
         <% report.report_tags.each do |rt| %>
         <div class="report-tag-bubble">
-          <p><%= acronymize(rt.tag.name) %></p>
+          <p><%= rt.tag.name %></p>
         </div>
       <% end %>
       <div class="card-report-user">
