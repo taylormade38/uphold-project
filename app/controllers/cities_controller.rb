@@ -23,6 +23,12 @@ class CitiesController < ApplicationController
     else
       @cities = policy_scope(City).order(created_at: :desc)
     end
+      @markers = Report.geocoded.map do |report|
+    {
+      lat: report.latitude,
+      lng: report.longitude
+    }
+    end
   end
 
 end
