@@ -22,20 +22,7 @@
         <% if @cities.empty? %>
         <p>Sorry, there are no cities available that match your search. Try again.</p>
         <% else %>
-        <% @cities.each do |city| %>
-        <div class="col-md-4 mb-3 city-card">
-          <%= link_to city_path(city) do %>
-          <% if city.photos.attached? %>
-          <div class="card-category" data-city-id="<%= city.id %>" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path city.photos.first.key, angle: 0 %>)"><%= city.name %>
-          </div>
-          <% else %>
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= city.find_photo %>)">
-            <%= city.name %>
-          </div>
-          <% end %>
-          <% end %>
-        </div>
-        <% end %>
+        <%= render "shared/card-frontpage" %>
         <% end %>
       </div>
     </div>
