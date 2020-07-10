@@ -37,6 +37,7 @@ import { initUpdateNavbarOnScroll } from "../DOM/dynamicNavbar"
 import { initTags } from '../plugins/tag_choice'
 import { initPopover } from '../plugins/popover_activation'
 import { initSweetalert } from '../plugins/init_sweetalert';
+import { initSubmitReport } from '../plugins/submit_report';
 
 
 // Internal imports, e.g:
@@ -50,6 +51,7 @@ document.addEventListener('turbolinks:load', () => {
   previewImageOnFileSelect();
   initTags();
   initPopover();
+  initSubmitReport();
   initUpdateNavbarOnScroll();
   initSweetalert('#sweet-alert-email', {
   title: "Thanks For Your Report!",
