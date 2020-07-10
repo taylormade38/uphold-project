@@ -7,7 +7,7 @@ class CitiesController < ApplicationController
     else
       @reports = @city.reports
       # @reports = Report.where.not(latitude: nil, longitude: nil)
-      @markers = @reports.map do |report|
+      @markers = @reports.geocoded.map do |report|
         {
           lat: report.latitude,
           lng: report.longitude
