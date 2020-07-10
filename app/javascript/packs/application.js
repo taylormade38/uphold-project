@@ -57,8 +57,8 @@ document.addEventListener('turbolinks:load', () => {
   content: {
     element: "input",
     attributes: {
-      placeholder: "Enter Your Email",
-      type: "email",
+      placeholder: "Enter Your City",
+      type: "city",
     },
   },
   buttons: {

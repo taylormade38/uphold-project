@@ -13,8 +13,7 @@ class ReportsController < ApplicationController
     @report.city = City.find(params[:report][:city_id])
     @report.officer = Officer.find(params[:report][:officer_id])
     if @report.save!
-      sleep 10
-      redirect_to city_path(@report.city)
+
     else
       render :new
     end
