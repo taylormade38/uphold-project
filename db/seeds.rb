@@ -33,11 +33,15 @@ city13 = {name: 'Denver', state: 'Colorado'}
 city14 = {name: 'Boston', state: 'Massachusetts'}
 city15 = {name: 'Nashville', state: 'Tennessee'}
 city16 = {name: 'Columbus', state: 'Ohio'}
+
+
 [ city1, city2, city3, city4, city5, city6, city7, city8, city9, city10, city11, city12, city13, city14, city15, city16 ].each do |attributes|
+
   city = City.create!(attributes)
   puts "Created #{city.name}"
 end
 puts "Finished!"
+
 puts "Creating officers .."
 32.times do
     Officer.create(
@@ -48,13 +52,14 @@ puts "Creating officers .."
         city: City.all.sample
       )
 end
+
 url = 'https://raw.githubusercontent.com/EthanRBrown/rrad/master/addresses-us-all.json'
 addresses_serialized = open(url).read
 addresses = JSON.parse(addresses_serialized)
 cities = addresses["addresses"]
 city_names = City.all.pluck(:name)
 cities.select! { |city_hash| city_names.include?(city_hash["city"])}
-los_angeles_addresses = cities.select { |city_hash| city_hash["city"] == "Los Angeles" }
+
 report_counter = 0
 puts "creating reports"
 cities.each do |address|
@@ -69,22 +74,8 @@ cities.each do |address|
   report_counter +=1
   p report_counter
   end
-# HAROLD's CODE
-# officers = Officer.all
-# officers.each do |officer|
-#     10.times do
-#         report = Report.new
-#         report.content = Faker::Lorem.sentence(word_count: 12)
-#         report.address = Faker::Address.full_address
-#         report.officer = officer
-#         report.user = User.first
-#         report.city = City.all.sample
-#         report.evaluation = %w(positive negative neutral).sample
-#         report.save!
-#     end
-# end
-puts "Creating tags..."
-tags = %w(Physical-Assault Weapon-Used Racist-Remark Racially-Profiled Excessive-Force Verbal-Abuse Chokehold)
+
+
 tag1 = {name: 'Weapon Used', info: 'The officer used a weapon.'}
 tag2 = {name: 'Physical Assault', info: 'The officer physically assaulted me.'}
 tag3 = {name: 'Weapon Used', info: 'The officer used a weapon against me, like a taser, baton, pepper spray, gun, etc.'}
@@ -93,18 +84,23 @@ tag5 = {name: 'Excessive Force', info: 'The officer used an unnecessary amount o
 tag6 = {name: 'Community Involvement', info: 'The officer is engaged in our community.'}
 tag7 = {name: 'Education', info: 'The officer taught participated in an event where he taught the community something new.'}
 tag8 = {name: 'Chokehold', info: 'The officer held me in a chokehold'}
+
+
 [ tag1, tag2, tag3, tag4, tag5, tag6, tag7, tag8 ].each do |attributes|
   tag = Tag.create!(attributes)
   puts "Created #{tag.name}"
 end
+
 50.times do
   report_tag = ReportTag.new
   report_tag.report = Report.all.sample
   report_tag.tag = Tag.all.sample
   report_tag.save!
 end
-puts "Finished!"
+
+
 cities = City.all
+
 cities.each do |city|
     puts "populating database"
     city.use_of_force_incidents = rand(1000..5000).to_i
@@ -115,3 +111,5 @@ cities.each do |city|
     city.complaints_against_police = city.use_of_force_incidents - rand(500..700).to_i
     city.save!
 end
+
+
