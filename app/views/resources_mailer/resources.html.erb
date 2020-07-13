@@ -1,10 +1,10 @@
-<h3>Hi <strong><%= @user.first_name %></strong>,</h3>
+<h3>Hi <strong><%= @report.user.first_name %></strong>,</h3>
 
 <p>You requested some mental health and/or legal resources in your community. Here is what we found:</p>
 
-<p>Mental Health Resources in <%= @user.city %>: </p>
+<p>Mental Health Resources in <%= @report.user.city %>: </p>
 
-<p>Attorneys specializing in law enforcement misconduct near <%= @user.city %>: </p>
+<p>Attorneys specializing in law enforcement misconduct near <%= @report.user.city %>: </p>
 
 <p>Other Mental Health Resources:</p>
 <ul>
@@ -14,7 +14,7 @@
   <li><a href="https://www.thetrevorproject.org/">LGBTQ Mental Health Resources</a></li>
 </ul>
 
-<p>For a more general list of resources, head back to the <%= link_to "Resources", resources_url %> page on our site. We wish you the very best.</p>
+<p>For a more general list of resources, head back to the page on our site. We wish you the very best.</p>
 
 
 <p>~Team Project UpHold</p>
