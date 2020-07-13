@@ -68,3 +68,6 @@
       </div>
     </div>
   </div>
+<% @reports.each do |report| %>
+  <%= render partial: 'shared/reports-list', locals: { report: report } %>
+<% end %>
