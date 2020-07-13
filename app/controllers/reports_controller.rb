@@ -3,10 +3,18 @@ class ReportsController < ApplicationController
 
   def new
     @report = Report.new
+    @officers = City.all.map do |city|
+        officers = city.officers.map do |officer|
+            {id: officer.id, text: officer.full_name}
+        end
+        { id: city.id, text: city.name, children: officers }
+    end
+
     authorize @report
   end
 
   def create
+    raise
     @report = Report.new(report_params)
     authorize @report
     unless params[:other][:user_city] == ""
