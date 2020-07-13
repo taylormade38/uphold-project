@@ -23,4 +23,15 @@ class Report < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
+  after_create :send_resources
+
+  private
+
+  def send_resources
+    if self.user.city
+      user_city = City.find_or_create_by(name: self.user.city.name)
+      places = Scraper.new.call(longitude: user_city.longitude, latitude: user_city.latitude, city: user_city)
+      ResourcesMailer.with(user: self).resources(places).deliver_now!
+    end
+  end
 end

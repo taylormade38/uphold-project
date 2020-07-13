@@ -5,6 +5,9 @@ class City < ApplicationRecord
   has_many :officers
   has_many_attached :photos, dependent: :destroy
 
+  geocoded_by :name
+  after_validation :geocode, if: :will_save_change_to_name?
+
   validates :name, presence: true
   validates :state, presence: true
 
@@ -25,6 +28,10 @@ class City < ApplicationRecord
       rescue
         "https://media-exp1.licdn.com/dms/image/C4D1BAQGxdaugFoixFg/company-background_10000/0?e=1594371600&v=beta&t=gtqeCMm_2mpO0BgakEGqexDZBbvXexqDw41MYsvT618"
       end
+    end
+
+    def self.city_name
+        City.all.map { |city| city.name }
     end
 
 end

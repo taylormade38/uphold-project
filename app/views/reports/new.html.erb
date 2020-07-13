@@ -39,7 +39,8 @@
         <h2>Share Your Story</h2>
         <%= simple_form_for @report do |f| %>
         <%= f.input :evaluation, as: :radio_buttons, collection: Report::EVALUATION, label: "My experience was:", wrapper: :vertical_collection_inline %>
-        <%= f.association :officer, label: "Officer(s) I interacted with:", collection: Officer.all.map { |officer| [officer.first_name, officer.id]} %>
+        <%#= f.association :officer, as: :grouped_select, group_method: :group_by_cities, group_label_method: :officer_city, include_blank: "Please Choose...", class: "officer-select2", input_html: { data: {officers: "text"} } %>
+        <select id="selectofficer" data-something="<%= @officers.to_json %>" name="report[officer_id]" class="form-control" style="width: 100%"></select>
         <%= f.input :address, label: "Location of the encounter:" %>
         <%= f.association :city, label: "City" %>
         <%= f.input :content, placeholder: "I was peacefully protesting when..." %>
