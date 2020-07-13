@@ -27,4 +27,8 @@ class City < ApplicationRecord
       end
     end
 
+    def self.city_name
+        City.all.map { |city| city.name }
+    end
+
 end

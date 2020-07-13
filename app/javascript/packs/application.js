@@ -3,6 +3,7 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
+
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
@@ -38,6 +39,7 @@ import { initTags } from '../plugins/tag_choice'
 import { initPopover } from '../plugins/popover_activation'
 import { initSweetalert } from '../plugins/init_sweetalert';
 import { initSubmitReport } from '../plugins/submit_report';
+import { initSelect2 } from '../plugins/init_select2'
 
 
 // Internal imports, e.g:
@@ -45,6 +47,7 @@ import { initSubmitReport } from '../plugins/submit_report';
 
 
 document.addEventListener('turbolinks:load', () => {
+  initSelect2();
   bindSearchForm();
   autocomplete();
   initMap();
@@ -67,7 +70,8 @@ document.addEventListener('turbolinks:load', () => {
     cancel: "No, Thanks",
     confirm: "Yes, Please",
   }
-});
+  });
+  // initSelect2();
 });
 
 import "controllers"
