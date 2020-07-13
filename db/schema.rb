@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_13_020524) do
+ActiveRecord::Schema.define(version: 2020_07_13_022324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,15 @@ ActiveRecord::Schema.define(version: 2020_07_13_020524) do
     t.index ["tag_id"], name: "index_report_tags_on_tag_id"
   end
 
+  create_table "report_votes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "report_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["report_id"], name: "index_report_votes_on_report_id"
+    t.index ["user_id"], name: "index_report_votes_on_user_id"
+  end
+
   create_table "reports", force: :cascade do |t|
     t.text "content"
     t.string "evaluation"
@@ -90,7 +99,6 @@ ActiveRecord::Schema.define(version: 2020_07_13_020524) do
     t.datetime "updated_at", precision: 6, null: false
     t.float "latitude"
     t.float "longitude"
-    t.integer "votes", default: 0, null: false
     t.index ["city_id"], name: "index_reports_on_city_id"
     t.index ["officer_id"], name: "index_reports_on_officer_id"
     t.index ["user_id"], name: "index_reports_on_user_id"
@@ -129,6 +137,8 @@ ActiveRecord::Schema.define(version: 2020_07_13_020524) do
   add_foreign_key "officers", "cities"
   add_foreign_key "report_tags", "reports"
   add_foreign_key "report_tags", "tags"
+  add_foreign_key "report_votes", "reports"
+  add_foreign_key "report_votes", "users"
   add_foreign_key "reports", "cities"
   add_foreign_key "reports", "officers"
   add_foreign_key "reports", "users"

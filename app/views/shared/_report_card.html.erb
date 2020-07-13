@@ -42,6 +42,10 @@
             <p><%= report.evaluation %></p>
           </div>
         <% end %>
+        <p>Votes: <%= report.report_votes.count %></p>
+        <% if policy(ReportVote.new(report: report)).create? %>
+          <%= link_to 'Upvote', report_report_votes_path(report), method: :post %>
+        <% end %>
       </div>
     </div>
   </div>
