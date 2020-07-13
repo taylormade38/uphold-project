@@ -2,7 +2,17 @@
 
 <p>You requested some mental health and/or legal resources in your community. Here is what we found:</p>
 
+<p>Mental Health Resources in <%= @user.city %>: </p>
 
+<p>Attorneys specializing in law enforcement misconduct near <%= @user.city %>: </p>
+
+<p>Other Mental Health Resources:</p>
+<ul>
+  <li><a href="https://www.beam.community/">BEAM: Black Emotional and Mental Health Collective</a></li>
+  <li><a href="https://www.therapyforlatinx.com/">Latinx Mental Health Directory</a></li>
+  <li><a href="https://www.naapimha.org/"> National Asian American Pacific Islander Mental Health Association</a></li>
+  <li><a href="https://www.thetrevorproject.org/">LGBTQ Mental Health Resources</a></li>
+</ul>
 
 <p>For a more general list of resources, head back to the <%= link_to "Resources", resources_url %> page on our site. We wish you the very best.</p>
 

@@ -28,7 +28,7 @@ class Report < ApplicationRecord
 
   def send_resources
     if self.user.city
-      UserMailer.with(user: self).resources.deliver_now
+      UserMailer.with(user: self).resources.deliver_now!
     end
   end
 end
