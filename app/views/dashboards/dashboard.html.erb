@@ -57,7 +57,8 @@
                 <% current_user.bookmarked_reports.each do |report| %>
                   <%= link_to report_path(report) do %>
                     <div class="col">
-                      <%= render partial: 'shared/report_card', locals: { report: report } %>
+                      <div class="row">
+                     <%= render partial: 'shared/reports-list', locals: { report: report } %>
                     </div>
                   <% end %>
                 <% end %>
@@ -68,6 +69,4 @@
       </div>
     </div>
   </div>
-<% @reports.each do |report| %>
-  <%= render partial: 'shared/reports-list', locals: { report: report } %>
-<% end %>
+
