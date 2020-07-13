@@ -5,6 +5,7 @@ class Report < ApplicationRecord
   belongs_to :city
   has_many :report_tags, dependent: :destroy
   has_many :tags, through: :report_tags
+  has_many :report_votes
 
   validates :city, presence: true
   validates :content, presence: true
