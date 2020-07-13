@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2020_07_13_032853) do
+ActiveRecord::Schema.define(version: 2020_07_13_033732) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +67,15 @@ ActiveRecord::Schema.define(version: 2020_07_13_032853) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
+  end
+
+  create_table "report_bookmarks", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "report_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["report_id"], name: "index_report_bookmarks_on_report_id"
+    t.index ["user_id"], name: "index_report_bookmarks_on_user_id"
   end
 
   create_table "report_tags", force: :cascade do |t|
@@ -136,6 +144,8 @@ ActiveRecord::Schema.define(version: 2020_07_13_032853) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "officers", "cities"
+  add_foreign_key "report_bookmarks", "reports"
+  add_foreign_key "report_bookmarks", "users"
   add_foreign_key "report_tags", "reports"
   add_foreign_key "report_tags", "tags"
   add_foreign_key "report_votes", "reports"
