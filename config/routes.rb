@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :officers, only: [:show, :new, :create]
   resources :reports, except: [:index] do
     resources :report_tags, only: [:create, :destroy]
+    resources :report_votes, only: [:create]
   end
 
   get "/dashboard", to: "dashboards#dashboard"
