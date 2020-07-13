@@ -5,9 +5,9 @@ class ResourcesMailer < ApplicationMailer
   #
   #   en.resources_mailer.resources.subject
   #
-  def resources
-     @report = params[:user] #instance variable - available in view
-     binding.pry
+  def resources(places)
+    @places = places
+    @report = params[:user] #instance variable - available in view
     mail(to: @report.user.email, subject: 'Here Are Some Available Resources In Your Community 🙌🏽')
   end
 end

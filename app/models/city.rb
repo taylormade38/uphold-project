@@ -5,6 +5,9 @@ class City < ApplicationRecord
   has_many :officers
   has_many_attached :photos, dependent: :destroy
 
+  geocoded_by :name
+  after_validation :geocode, if: :will_save_change_to_name?
+
   validates :name, presence: true
   validates :state, presence: true
 

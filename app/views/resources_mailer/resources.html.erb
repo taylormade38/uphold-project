@@ -1,10 +1,18 @@
-<h3>Hi <strong><%= @report.user.first_name %></strong>,</h3>
+<h2>Hi <strong><%= @report.user.first_name %></strong>,</h2>
 
-<p>You requested some mental health and/or legal resources in your community. Here is what we found:</p>
+<p>You recently submitted a report at <%= link_to "UpHold", root_url %>, and requested some resources. Here is what we found in your community:</p>
 
-<p>Mental Health Resources in <%= @report.user.city %>: </p>
+<h3>Mental Health Resources in <%= @report.user.city.name %>: </h3>
+<ul>
+  <% @places.each do |place| %>
+  <li><%= place["name"] %>: <%= place["website"] %> ~ <%= place["formatted_phone_number"] %></li>
+  <% end %>
+</ul>
 
-<p>Attorneys specializing in law enforcement misconduct near <%= @report.user.city %>: </p>
+<p>Didn't find what you're looking for? Visit <a href="https://findtreatment.samhsa.gov/locator">SAMHSA</a> for a more comprehensive search.</p>
+
+<h3>Legal Resources:</h3>
+<p>Check <a href="https://www.nlg-npap.org/find-attorney/">this website</a> to find an attorney who specializes in law enforcement misconduct in your state.</p>
 
 <p>Other Mental Health Resources:</p>
 <ul>

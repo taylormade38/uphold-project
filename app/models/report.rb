@@ -29,7 +29,9 @@ class Report < ApplicationRecord
 
   def send_resources
     if self.user.city
-      ResourcesMailer.with(user: self).resources.deliver_now!
+      user_city = City.find_or_create_by(name: self.user.city.name)
+      places = Scraper.new.call(longitude: user_city.longitude, latitude: user_city.latitude, city: user_city)
+      ResourcesMailer.with(user: self).resources(places).deliver_now!
     end
   end
 end

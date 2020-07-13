@@ -44,6 +44,10 @@ class ReportsController < ApplicationController
     redirect_to city_path(@city)
   end
 
+  def enrich_report
+    enriched_data = Scraper.call
+  end
+
   private
 
   def set_report
