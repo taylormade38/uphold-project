@@ -9,9 +9,11 @@ Rails.application.routes.draw do
   resources :reports, except: [:index] do
     resources :report_tags, only: [:create, :destroy]
     resources :report_votes, only: [:create]
+    resources :report_bookmarks, only: [:create]
   end
 
   get "/dashboard", to: "dashboards#dashboard"
+  delete "/report_bookmarks/:report_id", to: "report_bookmarks#destroy", as: 'report_report_bookmark'
 
   resources :users, only: [:show]
 

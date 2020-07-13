@@ -23,6 +23,11 @@
           <li><a href=""><i class="fa fa-flag"></i></a></li>
           <li><a href=""><i class="fa fa-share"></i></a></li>
           <li><a href=""><i class="fa fa-star"></i></a></li>
+          <% if policy(ReportBookmark.new(report: report)).create? %>
+          <%= link_to 'Bookmark', report_report_bookmarks_path(report), method: :post %>
+          <% else %>
+          <%= link_to 'Unbookmark', report_report_bookmark_path(report), method: :delete %>
+          <% end %>
         </div>
       </div>
     </div>
