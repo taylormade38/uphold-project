@@ -40,7 +40,7 @@
               <% else %>
                 <% @reports.each do |report| %>
                   <%= link_to report_path(report) do %>
-                      <div class="row">
+                      <div class="reports-row">
                       <%= render partial: 'shared/report_card', locals: { report: report } %>
                       <% end %>
                     </div>
