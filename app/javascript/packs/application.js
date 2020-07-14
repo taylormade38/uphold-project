@@ -39,7 +39,8 @@ import { initTags } from '../plugins/tag_choice'
 import { initPopover } from '../plugins/popover_activation'
 import { initSweetalert } from '../plugins/init_sweetalert';
 import { initSubmitReport } from '../plugins/submit_report';
-import { initSelect2 } from '../plugins/init_select2'
+import { initSelect2 } from '../plugins/init_select2';
+import { initEmoji } from '../plugins/report_evaluation';
 
 
 // Internal imports, e.g:
@@ -56,6 +57,7 @@ document.addEventListener('turbolinks:load', () => {
   initPopover();
   initSubmitReport();
   initUpdateNavbarOnScroll();
+  initEmoji();
   initSweetalert('#sweet-alert-email', {
   title: "Thanks For Your Report!",
   text: "We understand that having a negative encounter with the police can cause serious emotional distress. If you'd like us to send you an email with mental health or legal resources in your area, add your email below. (Or, check out our 'Resources' page.)" ,

@@ -1,47 +1,24 @@
 
-
 <div class="container new-report-container padding-top-xl d-flex">
-  <div class="row col-4">
-    <div class="col-xs-12 col-sm-10 offset-sm-1 col-lg-10 offset-lg-1">
+  <div class="row">
       <h1 class="report-tips-title">Report Do's and Don'ts</h1>
       <div class="report-tips-container">
-        <div class="report-tips">
-          <h3>Do</h3>
-          <%= cl_image_tag("https://image.flaticon.com/icons/svg/3090/3090235.svg", width: 50, height: 50, crop: :fill) %>
-          <p>Tell us the backstory! It’s important to share as much as you're comfortable with about what happened during the encounter so that readers get an accurate picture. The more information, the better! </p>
-
-          <button type="button" class="btn btn-info" data-container="body" data-toggle="popover" data-placement="left" data-content="Sharing your story is crucial. Showing an accuracte picture of what happened is also important. You can do that by including in your report the events leading up to your encounter with the officer, and the events that followed the encounter. (ie. I was pulled over for speeding, or I was walking my dog in my neighborhood.)">
-
-            Learn More
-          </button>
-        </div>
-        <div class="report-tips">
-          <h3>Don't</h3>
-          <%= cl_image_tag("https://image.flaticon.com/icons/svg/2667/2667356.svg", width: 50, height: 50, crop: :fill) %>
-          <p>Make any false claims. This is illegal, and you can be sued for defamation. You will also be banned from the site.</p>
-          <button type="button" class="btn btn-info" data-container="body" data-toggle="popover" data-placement="left" data-content="Making false claims on an officer, with the intention of damaging their reputation, is considered defamation. Although we take as much caution in protecting your identity, it would be in your best interest to be completely honest in your reports. Get more information on defamation here.">
-            Learn More
-          </button>
-        </div>
-        <div class="report-tips">
-          <h3>Don't</h3>
-          <%= cl_image_tag("https://image.flaticon.com/icons/svg/2667/2667356.svg", width: 50, height: 50, crop: :fill) %>
-          <p>Use profanity, name calling, or derogatory terms. Hate speech will not be tolerated, and your account may be suspended.</p>
-          <button type="button" class="btn btn-info" data-container="body" data-toggle="popover" data-placement="left" data-content="When you agreed to our terms and conditions, you agreed to refrain from using profanity, name calling, and derogatory speech. Although we are fighting a damaged system which can be frustrating at times, your reports must not include any hate speech, or your account will be suspended.">
-            Learn More
-          </button>
-        </div>
+        <%= render "shared/report-tips" %>
       </div>
-    </div>
-  </div>
 
   <div class="row">
     <div class="col-xs-12 col-sm-8 d-flex justify-content-center mx-auto">
       <div class="form-report">
         <h2>Share Your Story</h2>
         <%= simple_form_for @report do |f| %>
-        <%= f.input :evaluation, as: :radio_buttons, collection: Report::EVALUATION, label: "My experience was:", wrapper: :vertical_collection_inline %>
+        <span id="positive"><i class="far fa-smile"></i></span>
+        <span id="neutral"><i class="far fa-meh"></i></span>
+        <span id="negative"><i class="far fa-angry"></i></span>
+        <div class="d-none">
+        <%= f.input :evaluation, as: :radio_buttons, collection: Report::EVALUATION, label: "My experience was:", wrapper: :vertical_collection_inline, class: "d-none" %>
+      </div>
         <%#= f.association :officer, as: :grouped_select, group_method: :group_by_cities, group_label_method: :officer_city, include_blank: "Please Choose...", class: "officer-select2", input_html: { data: {officers: "text"} } %>
+        <label for="selectofficer">Officers Involved</label>
         <select id="selectofficer" data-officers="<%= @officers.to_json %>" name="report[officer_id]" class="form-control" style="width: 100%"></select>
         <%= f.input :address, label: "Location of the encounter:" %>
         <%= f.association :city, label: "City" %>
@@ -66,20 +43,20 @@
         <%= simple_fields_for :other do |o| %>
         <%= o.input :user_city, as: :hidden %>
         <% end %>
-        <%= f.submit "Submit Your Report", class: "btn btn-dark", id: "submit-report" ,data: {toggle: "modal", target: "#exampleModal"} %>
+        <%= f.submit "Submit Your Report", class: "btn btn-dark", id: "submit-report" ,data: {toggle: "modal", target: "#resourcesModal"} %>
         <% end %>
       </div>
 
     </div>
   </div>
 </div>
+</div>
 
-
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="resourcesModal" tabindex="-1" role="dialog" aria-labelledby="resourcesModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Before you go...</h5>
+        <h5 class="modal-title" id="resourcesModalLabel">Before you go...</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
