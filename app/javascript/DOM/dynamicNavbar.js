@@ -3,9 +3,9 @@ const initUpdateNavbarOnScroll = () => {
   if (navbar) {
     window.addEventListener('scroll', () => {
       if (window.scrollY >= 550) {
-        navbar.classList.add('navbar-white');
+        navbar.classList.remove('navbar-transparent');
       } else {
-        navbar.classList.remove('navbar-white');
+        navbar.classList.add('navbar-transparent');
       }
     });
   }
