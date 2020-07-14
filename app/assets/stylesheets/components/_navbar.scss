@@ -9,9 +9,17 @@
 
 .home-navbar{
   a{
+  }
+}
+
+.nav-link {
     color: #fcf9f9 !important;
     text-shadow: 1px 1px #1e1a1a;
-  }
+
+}
+
+.nav-dropdown-link {
+  color: black !important;
 }
 
 .background-white{
@@ -39,6 +47,23 @@
 
 
 .navbar-white {
+
+#link-icon {
+  color: black !important;
+  text-shadow: none !important;
+
+  display: flex;
+  align-items: center;
+  &:hover {
+    color: black;
+    text-decoration: none;
+  }
+  .fas {
+    font-size: 36px;
+    margin-top: 4px;
+  }
+}
+
   background-color: white;
   a {
     color: black !important;
@@ -47,6 +72,9 @@
 }
 
 #link-icon {
+  color: #fcf9f9 !important;
+  text-shadow: 1px 1px #1e1a1a;
+
   display: flex;
   align-items: center;
   &:hover {
