@@ -1,0 +1,25 @@
+.city-banner {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#city-title {
+    text-align: center;
+    h1 {
+        color: white;
+        text-shadow: 2px 2px #000;
+    }
+    .new-report-button {
+        color: white;
+        border: 1px solid white;
+
+        &:hover {
+            background-color: white;
+            color: black;
+        }
+    }
+}
