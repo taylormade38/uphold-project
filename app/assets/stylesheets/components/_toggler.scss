@@ -3,7 +3,8 @@
   height: 40px;
   width: 40px;
   border-radius: 50%;
-  position: absolute;
+
+  padding: 30px;
 
 }
 
@@ -12,6 +13,7 @@
   padding: 5px;
   font-size: 30px;
   margin: 5px;
+
 }
 .toggler-icon:hover {
   opacity: 0.6;
