@@ -34,4 +34,8 @@ class City < ApplicationRecord
         City.all.map { |city| city.name }
     end
 
+    def use_of_force
+        (self.use_of_force_unarmed.to_f / self.use_of_force_incidents) * 100
+    end
+
 end
