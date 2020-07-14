@@ -1,9 +1,8 @@
 <div class="container padding-top-xl">
-      <div id="map" style="width: 100%; height: 100vh;" data-markers="<%= @markers.to_json %>"
-        >
-        <!-- map goes here -->
-      </div>
-
+  <div id="map" style="width: 100%; height: 100vh;" data-markers="<%= @markers.to_json %>"
+    >
+    <!-- map goes here -->
+  </div>
 <div class="container py-4">
   <div class="search-container">
 <div class="search-form">
@@ -19,11 +18,8 @@
 </div>
 <div><%= link_to "Filter", root_path, class:'btn btn-outline-dark' %> </div>
 </div>
-
 </div>
-
-
-    <div class="container cards-container" id="cities">
+    <div class="cards-container" id="cities">
       <div class="row">
         <% if @cities.empty? %>
         <p>Sorry, there are no cities available that match your search. Try again.</p>

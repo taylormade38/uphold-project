@@ -61,10 +61,11 @@
           <% end %>
           <div class="report-container">
               <% @reports.each do |report| %>
+              <ul class="list-unstyled">
                 <%= render partial: 'shared/reports-list', locals: { report: report } %>
+              </ul>
               <% end %>
           </div>
-
         </div>
       </div>
     </div>

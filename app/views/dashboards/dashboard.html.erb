@@ -36,41 +36,30 @@
               <p>You don't have any activity to show. <%= link_to "Browse city reports here!", cities_path %></p>
             </div>
           </div>
-
-          <div class="tab-pane fade" id="pills-report" role="tabpanel" aria-labelledby="pills-report-tab">Report
-            <div class="row">
-              <% if @reports.empty? %>
-                <p>You haven't made any reports yet. <%= link_to "Browse city reports here!", cities_path %></p>
-              <% else %>
-                <% @reports.each do |report| %>
-                  <%= link_to report_path(report) do %>
-                      <div class="reports-row">
-                      <%= render partial: 'shared/report_card', locals: { report: report } %>
-                      <% end %>
-                    </div>
-
-                <% end %>
+          <div class="tab-pane fade" id="pills-report" role="tabpanel" aria-labelledby="pills-report-tab">
+            <% if @reports.empty? %>
+              <p>You haven't made any reports yet. <%= link_to "Browse city reports here!", cities_path %></p>
+            <% else %>
+              <ul class="list-unstyled">
+              <% @reports.each do |report| %>
+                <%= render partial: 'shared/reports-list', locals: { report: report } %>
               <% end %>
-            </div>
+              </ul>
+            <% end %>
           </div>
           <div class="tab-pane fade" id="pills-bookmark" role="tabpanel" aria-labelledby="pills-bookmark-tab">
-            <div class="row">
-              <% if current_user.bookmarked_reports.empty? %>
-                <p>You haven't made any bookmarks yet. <%= link_to "Browse city reports here!", cities_path %></p>
-              <% else %>
-                <% current_user.bookmarked_reports.each do |report| %>
-                  <%= link_to report_path(report) do %>
-                    <div class="col">
-                      <div class="row">
-                     <%= render partial: 'shared/reports-list', locals: { report: report } %>
-                    </div>
-                  <% end %>
-                <% end %>
+            <% if current_user.bookmarked_reports.empty? %>
+            <p>You haven't made any bookmarks yet. <%= link_to "Browse city reports here!", cities_path %></p>
+            <% else %>
+              <ul class="list-unstyled">
+              <% current_user.bookmarked_reports.each do |report| %>
+                <%= render partial: 'shared/reports-list', locals: { report: report } %>
               <% end %>
-            </div>
+            <% end %>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 
