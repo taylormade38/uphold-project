@@ -1,60 +1,23 @@
 
-<div class="container">
-<ul class="list-unstyled">
+
   <li class="product">
 
     <div class="product-upvote text-center">
       <i class="fa fa-caret-up"></i>
-      <p><%= report.id %></p>
+      <p><%= report.report_votes.count %></p>
     </div>
 
-    <img src="http://unsplash.it/200/120/?random" alt="" class="product-image img-rounded">
+    <%= image_tag 'placeholder.jpg', class: 'product-image rounded' %>
 
     <div class="product-description">
-      <h3></h3>
-      <p><small><%= report.created_at.strftime("%e %b %Y %H:%M:%S%p") %></small></p>
+      <h3>Report #<%= report.id %></h3>
       <p><%= report.content.first(280) %>... <%= link_to "See More", report_path(report) %></p>
-      <p><i class="fas fa-address-card"></i> <%= link_to "#{report.officer.first_name} #{report.officer.last_name}", officer_path(report.officer) %></p>
-      <div class="footer-links">
-
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-
-      </div>
-    </div>
-
-    <ul class="list-inline product-controls">
-      <a href=""><i class="fa fa-bookmark"></i></a>
-      <% if policy(ReportBookmark.new(report: report)).create? %>
-      <%= link_to 'Bookmark', report_report_bookmarks_path(report), method: :post %>
-      <% else %>
-      <%= link_to 'Unbookmark', report_report_bookmark_path(report), method: :delete %>
-      <% end %>
-    </ul>
-    <div class="report-info">
-      <div class="report-content-container d-flex">
-        <% if report.evaluation == "positive" %>
-        <div class="report-evaluation d-flex justify-content-center align-items-center col-3 text-success">
-          <p><%= report.evaluation %></p>
-        </div>
-        <% elsif report.evaluation == "negative" %>
-        <div class="report-evaluation d-flex justify-content-center align-items-center col-3 text-success">
-          <p><%= report.evaluation %></p>
-        </div>
-        <% elsif report.evaluation == "netural" %>
-        <div class="report-evaluation d-flex justify-content-center align-items-center col-3 text-secondary">
-          <p><%= report.evaluation %></p>
-        </div>
-        <% end %>
-        <p>Votes: <%= report.report_votes.count %></p>
-        <% if policy(ReportVote.new(report: report)).create? %>
-        <%= link_to 'Upvote', report_report_votes_path(report), method: :post %>
-        <% end %>
-      </div>
+      <ul class="list-inline product-controls">
+        <li><a href=""><i class="fab fa-instagram"></i></a></li>
+        <li><a href=""><i class="fab fa-facebook"></i></a></li>
+        <li><a href=""><i class="fab fa-twitter"></i></a></li>
+      </ul>
     </div>
   </li>
-</ul>
-</div>
 
 
