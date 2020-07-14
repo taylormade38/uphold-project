@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_13_033732) do
+ActiveRecord::Schema.define(version: 2020_07_13_095509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 2020_07_13_033732) do
     t.integer "complaints_against_police"
     t.integer "officer_involved_shootings"
     t.integer "officer_involved_killings"
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "officers", force: :cascade do |t|
@@ -108,7 +110,6 @@ ActiveRecord::Schema.define(version: 2020_07_13_033732) do
     t.datetime "updated_at", precision: 6, null: false
     t.float "latitude"
     t.float "longitude"
-    t.integer "votes", default: 0, null: false
     t.index ["city_id"], name: "index_reports_on_city_id"
     t.index ["officer_id"], name: "index_reports_on_officer_id"
     t.index ["user_id"], name: "index_reports_on_user_id"

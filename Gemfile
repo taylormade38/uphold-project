@@ -33,6 +33,7 @@ gem 'geocoder'
 
 gem 'omniauth-facebook'
 
+gem 'social-share-button', '~> 0.1.10'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

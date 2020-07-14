@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   get "/dashboard", to: "dashboards#dashboard"
   delete "/report_bookmarks/:report_id", to: "report_bookmarks#destroy", as: 'report_report_bookmark'
+  get "/officers/search", to: "officers#search", as: "officers_search"
 
   resources :users, only: [:show]
 

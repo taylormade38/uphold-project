@@ -3,6 +3,13 @@ class ReportsController < ApplicationController
 
   def new
     @report = Report.new
+    @officers = City.all.map do |city|
+        officers = city.officers.map do |officer|
+            {id: officer.id, text: officer.full_name}
+        end
+        { id: city.id, text: city.name, children: officers }
+    end
+
     authorize @report
   end
 
@@ -42,6 +49,10 @@ class ReportsController < ApplicationController
     authorize @report
     @report.destroy
     redirect_to city_path(@city)
+  end
+
+  def enrich_report
+    enriched_data = Scraper.call
   end
 
   private

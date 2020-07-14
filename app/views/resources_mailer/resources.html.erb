@@ -1,0 +1,31 @@
+<h2>Hi <strong><%= @report.user.first_name %></strong>,</h2>
+
+<p>You recently submitted a report at <%= link_to "UpHold", root_url %>, and requested some resources. Here is what we found in your community:</p>
+
+<h3>Mental Health Resources in <%= @report.user.city.name %>: </h3>
+<ul>
+  <% @places.each do |place| %>
+  <% next if place.nil? %>
+  <li><%= place["name"] %>: <%= place["website"] %> ~ <%= place["formatted_phone_number"] %></li>
+  <% end %>
+</ul>
+
+<p>Didn't find what you're looking for? Visit <a href="https://findtreatment.samhsa.gov/locator">SAMHSA</a> for a more comprehensive search.</p>
+
+<h3>Legal Resources:</h3>
+<p>Check <a href="https://www.nlg-npap.org/find-attorney/">this website</a> to find an attorney who specializes in law enforcement misconduct in your state.</p>
+
+<p>Other Mental Health Resources:</p>
+<ul>
+  <li><a href="https://www.beam.community/">BEAM: Black Emotional and Mental Health Collective</a></li>
+  <li><a href="https://www.therapyforlatinx.com/">Latinx Mental Health Directory</a></li>
+  <li><a href="https://www.naapimha.org/"> National Asian American Pacific Islander Mental Health Association</a></li>
+  <li><a href="https://www.thetrevorproject.org/">LGBTQ Mental Health Resources</a></li>
+</ul>
+
+<p>For a more general list of resources, head back to the page on our site. We wish you the very best.</p>
+
+
+<p>~Team Project UpHold</p>
+
+<%= link_to "Back to Project UpHold", root_url %>

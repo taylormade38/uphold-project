@@ -3,22 +3,23 @@
 body{
 
   color: rgb(20, 20, 20);
-  font-family:  'Roboto', sans-serif;
+  font-family:  $headers-font;
 }
-h1{
-  font-family:  'Roboto', sans-serif;
+
+h1{;
+  font-family:  $headers-font;
   color: gray;
   font-weight: lighter;
   font-size: 50px;
 }
 h2 {
-  font-family:  'Roboto', sans-serif;
+  font-family:  $headers-font;
   color: black;
   font-weight: lighter;
   font-size: 20px;
 }
 
 p {
-  font-family:  'Roboto', sans-serif;
+  font-family:  $body-font;
 
 }
