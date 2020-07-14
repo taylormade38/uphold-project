@@ -5,6 +5,7 @@
 <h3>Mental Health Resources in <%= @report.user.city.name %>: </h3>
 <ul>
   <% @places.each do |place| %>
+  <% next if place.nil? %>
   <li><%= place["name"] %>: <%= place["website"] %> ~ <%= place["formatted_phone_number"] %></li>
   <% end %>
 </ul>
