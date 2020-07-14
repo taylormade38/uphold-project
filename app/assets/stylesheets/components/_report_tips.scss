@@ -2,15 +2,44 @@
 //   text-align: center;
 //   margin-top: 50px;
 // }
+.new-report-container{
+  h1 {
+    font-size: 30px;
+  }
+  .row {
+    justify-content: center;
+  }
+}
+.report-tips-row {
+  justify-content: center;
+}
 .report-tips-container {
   margin-top: 50px;
+  display: flex;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
 }
 
 .report-tips {
   text-align: center;
   padding: 10px;
+  width: 300px;
+  height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .report-tips-title {
   text-align: center;
+}
+
+.selected-emoji {
+  background-color: #FFB934;
+}
+
+.report-eval i {
+  font-size: 50px;
 }
