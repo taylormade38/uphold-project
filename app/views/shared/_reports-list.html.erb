@@ -39,8 +39,8 @@
         <div class="report-evaluation d-flex justify-content-center align-items-center col-3 text-secondary">
           <p><%= report.evaluation %></p>
         </div>
-        <% end %>
-        </div>
+      <% end %>
+    </div>
 
     <div class="bookmark-container">
      <% if policy(ReportBookmark.new(report: report)).create? %>
