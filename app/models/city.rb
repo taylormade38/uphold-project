@@ -18,13 +18,13 @@ class City < ApplicationRecord
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
 
-   def find_photo
+   def find_photo(res = 400)
     begin
         api_key = ENV["GOOGLE_API_SERVER_KEY"]
         places_search_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=#{self.name}&key=#{api_key}"
         places_search_json = JSON.parse(open(places_search_url).read)
         photo_ref = places_search_json["results"][0]["photos"][0]["photo_reference"]
-        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_ref}&key=#{api_key}"
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=#{res}&photoreference=#{photo_ref}&key=#{api_key}"
       rescue
         "https://media-exp1.licdn.com/dms/image/C4D1BAQGxdaugFoixFg/company-background_10000/0?e=1594371600&v=beta&t=gtqeCMm_2mpO0BgakEGqexDZBbvXexqDw41MYsvT618"
       end
@@ -32,6 +32,10 @@ class City < ApplicationRecord
 
     def self.city_name
         City.all.map { |city| city.name }
+    end
+
+    def use_of_force
+        (self.use_of_force_unarmed.to_f / self.use_of_force_incidents) * 100
     end
 
 end

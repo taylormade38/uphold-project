@@ -18,8 +18,13 @@
     .nav-link{
       color: #fcf9f9 !important;
       text-shadow: 1px 1px #1e1a1a;
+      margin: 0 6px 0 6px;
     }
   }
+
+.avatar {
+  margin-left: 6px;
+}
 
 .collapse{
   flex-grow:0;
