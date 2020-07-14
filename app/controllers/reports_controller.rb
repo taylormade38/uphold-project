@@ -14,7 +14,6 @@ class ReportsController < ApplicationController
   end
 
   def create
-    raise
     @report = Report.new(report_params)
     authorize @report
     unless params[:other][:user_city] == ""
