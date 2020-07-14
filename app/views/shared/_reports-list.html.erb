@@ -1,9 +1,13 @@
   <li class="product">
 
     <div class="product-upvote text-center">
-      <i class="fa fa-caret-up"></i>
+      <% if policy(ReportVote.new(report: report)).create? %>
+        <%= link_to report_report_votes_path(report), method: :post do %>
+      <i class="fa fa-caret-up"></i>Hello
+      <% end %>
+      <% end %>
       <p><%= report.report_votes.count %></p>
-    </div>
+      </div>
 
     <%= image_tag 'placeholder.jpg', class: 'product-image rounded' %>
 
@@ -27,6 +31,5 @@
      <i class="fas fa-bookmark"></i>
      <% end %>
      <% end %>
-
    </div>
  </li>
