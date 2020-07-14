@@ -3,11 +3,10 @@
   <div class="row">
       <h1 class="report-tips-title">Share Your Story</h1>
       <div class="report-tips-container">
-
-          <h2>Report Do's and Don'ts</h2>
-          <div class="report-tips-info">
-        <%= render "shared/report-tips" %>
-      </div>
+        <h2>Report Do's and Don'ts</h2>
+        <div class="report-tips-info">
+          <%= render "shared/report-tips" %>
+        </div>
       </div>
 
   <div class="row">
@@ -15,14 +14,16 @@
       <div class="form-report">
         <h2>Write a Report</h2>
         <%= simple_form_for @report do |f| %>
-        <span id="positive"><i class="far fa-smile"></i></span>
-        <span id="neutral"><i class="far fa-meh"></i></span>
-        <span id="negative"><i class="far fa-angry"></i></span>
+        <label for="evaluation"> My experience was: </label>
+        <span class="emoji" id="positive"><i class="far fa-smile"></i></span>
+        <span class="emoji" id="neutral"><i class="far fa-meh"></i></span>
+        <span class="emoji" id="negative"><i class="far fa-angry"></i></span>
         <div class="d-none">
-        <%= f.input :evaluation, as: :radio_buttons, collection: Report::EVALUATION, label: "My experience was:", wrapper: :vertical_collection_inline, class: "d-none" %>
+        <%= f.input :evaluation, as: :radio_buttons, collection: Report::EVALUATION, wrapper: :vertical_collection_inline %>
       </div>
+      <br>
         <%#= f.association :officer, as: :grouped_select, group_method: :group_by_cities, group_label_method: :officer_city, include_blank: "Please Choose...", class: "officer-select2", input_html: { data: {officers: "text"} } %>
-        <label for="selectofficer">Officers Involved</label>
+        <label id="officer-label" for="selectofficer">Officers Involved:</label>
         <select id="selectofficer" data-officers="<%= @officers.to_json %>" name="report[officer_id]" class="form-control" style="width: 100%"></select>
         <%= f.input :address, label: "Location of the encounter:" %>
         <%= f.association :city, label: "City" %>
