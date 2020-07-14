@@ -4,16 +4,22 @@
         <!-- map goes here -->
       </div>
 
-<div class="index-search">
-  <%= form_tag cities_path, method: :get, class: "d-flex" do %>
+<div class="container py-4">
+  <div class="search-container">
+<div class="search-form">
+<%= form_tag cities_path, method: :get, class: "d-flex search-bar" do %>
   <%= text_field_tag :query,
   params[:query],
   class: "form-control nav-search-group",
     id: "nav-search",
     placeholder: "Find a city by name or state"
     %>
-    <%= submit_tag "Search", class: "btn ml-2 nav-search-group" %>
+    <%= submit_tag "Search", class: "btn btn-outline-dark ml-2" %>
     <% end %>
+</div>
+<div><%= link_to "Filter", root_path, class:'btn btn-outline-dark' %> </div>
+</div>
+
 </div>
 
 
