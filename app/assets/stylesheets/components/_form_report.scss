@@ -53,7 +53,9 @@ div.location-input{
   display: flex;
 }
 
-div.left-report-container {
-  width: 100%;
-  background-image: url("https://images.unsplash.com/photo-1503249023995-51b0f3778ccf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60");
+div.new-report-container {
+  background-image: url("https://images.unsplash.com/photo-1557081998-05f784dcdd41?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80");
+    background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: auto;
 }
