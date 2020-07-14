@@ -1,4 +1,7 @@
+
+
   <li class="product">
+
 
     <div class="product-upvote text-center">
       <% if policy(ReportVote.new(report: report)).create? %>
@@ -22,6 +25,23 @@
         <li><a href=""><i class="fab fa-twitter"></i></a></li>
       </ul>
     </div>
+
+    <div class="evaluation-container" style="position: top;">
+    <% if report.evaluation == "positive" %>
+        <div class="report-evaluation d-flex justify-content-center align-items-center col-3 text-success">
+          <p><%= report.evaluation %></p>
+        </div>
+        <% elsif report.evaluation == "negative" %>
+        <div class="report-evaluation d-flex justify-content-center align-items-center col-3 text-danger">
+          <p><%= report.evaluation %></p>
+        </div>
+        <% elsif report.evaluation == "netural" %>
+        <div class="report-evaluation d-flex justify-content-center align-items-center col-3 text-secondary">
+          <p><%= report.evaluation %></p>
+        </div>
+        <% end %>
+        </div>
+
     <div class="bookmark-container">
      <% if policy(ReportBookmark.new(report: report)).create? %>
      <%= link_to report_report_bookmarks_path(report), method: :post do %>

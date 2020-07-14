@@ -1,9 +1,10 @@
+
 <div style="padding-top: 5rem">
     <div class="city-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= @city.find_photo(1200) %>')">
 
         <div id="city-title">
           <h1 class="text-center"><%= @city.name %></h1>
-          <%= link_to "Write a Report", new_report_path, class: "new-report-button btn btn-outline-secondary align-self-center"%>
+          <%= link_to "Write a Report", new_report_path, class: "new-report-button btn btn-outline-dark align-self-center"%>
         </div>
     </div>
 </div>
@@ -61,7 +62,7 @@
               class: "form-control",
               placeholder: "Search by Tag"
             %>
-            <%= submit_tag "Search", class: "btn btn-primary submit-button" %>
+            <%= submit_tag "Search", class: "btn btn-outline-dark submit-button" %>
           <% end %>
           <div class="report-container">
               <% @reports.each do |report| %>

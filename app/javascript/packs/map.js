@@ -1,4 +1,3 @@
-import GMaps from 'gmaps/gmaps.js';
 import mapStyle from './mapsStyle';
 
 const initMap = () => {

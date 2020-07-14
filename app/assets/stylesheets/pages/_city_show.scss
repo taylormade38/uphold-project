@@ -74,3 +74,33 @@
     text-align: center;
 }
 
+#city-title {
+  display: flex;
+  align-items: left;
+  padding-right: 15px;
+  padding-left: 15px;
+  h1 {
+    margin-right: 16px;
+  }
+}
+
+a.nav-link:link
+{
+   color: #495057;
+   text-decoration: none;
+}
+a.nav-link:visited
+{
+   color: #495057;
+   text-decoration: none;
+}
+a.nav-link:hover
+{
+   color: #495057;
+   text-decoration: none;
+}
+a.nav-link:active
+{
+   color: #495057;
+   text-decoration: none;
+}
