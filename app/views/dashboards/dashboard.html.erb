@@ -1,7 +1,9 @@
 <div class="dashboard-container">
   <div class="container">
-    <h2 style="text-align: center;">Dashboard</h2>
-    <h2>Profile</h2>
+    <div class="row">
+      <div class="col-sm-4"><h2>Profile</h2></div>
+      <div class="col-sm-8"><h2>Dashboard</h2></div>
+    </div>
     <div class="row">
       <div class="col-12 col-md-6 col-lg-4" >
         <div class="card">
@@ -28,6 +30,7 @@
           </li>
         </ul>
         <div class="tab-content" id="pills-tabContent">
+
           <div class="tab-pane fade show active" id="pills-activity" role="tabpanel" aria-labelledby="pills-activity-tab">
             <div class="row">
               <p>You don't have any activity to show. <%= link_to "Browse city reports here!", cities_path %></p>
