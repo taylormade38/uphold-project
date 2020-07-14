@@ -1,9 +1,12 @@
+<div class="whole-container padding-top-xl d-flex">
+  <div class="left-report-container">
 
-<div class="container new-report-container padding-top-xl d-flex">
-  <div class="row">
+  </div>
+  <div class="right-report-container">
+    <div class="row">
       <h1 class="report-tips-title">Report Do's and Don'ts</h1>
       <div class="row report-tips-container">
-        <div class="col-6 col-md-4 report-tips">
+        <div class="col report-tips">
           <h3>Do</h3>
           <%= cl_image_tag("https://image.flaticon.com/icons/svg/3090/3090235.svg", width: 50, height: 50, crop: :fill) %>
           <p>Tell us the backstory! It’s important to share as much as you're comfortable with about what happened during the encounter so that readers get an accurate picture. The more information, the better! </p>
@@ -13,7 +16,7 @@
             Learn More
           </button>
         </div>
-        <div class="col-6 col-md-4 report-tips">
+        <div class="col report-tips">
           <h3>Don't</h3>
           <%= cl_image_tag("https://image.flaticon.com/icons/svg/2667/2667356.svg", width: 50, height: 50, crop: :fill) %>
           <p>Make any false claims. This is illegal, and you can be sued for defamation. You will also be banned from the site.</p>
@@ -21,7 +24,7 @@
             Learn More
           </button>
         </div>
-        <div class="col-6 col-md-4  report-tips">
+        <div class="col report-tips">
           <h3>Don't</h3>
           <%= cl_image_tag("https://image.flaticon.com/icons/svg/2667/2667356.svg", width: 50, height: 50, crop: :fill) %>
           <p>Use profanity, name calling, or derogatory terms. Hate speech will not be tolerated, and your account may be suspended.</p>
@@ -34,7 +37,7 @@
   </div>
 
   <div class="row">
-    <div class="col-xs-12 col-sm-8 d-flex justify-content-center mx-auto">
+    <div class="col d-flex justify-content-center mx-auto">
       <div class="form-report">
         <h2>Share Your Story</h2>
         <%= simple_form_for @report do |f| %>
@@ -48,9 +51,15 @@
         <%= f.input :evaluation, as: :radio_buttons, collection: Report::EVALUATION, label: "My experience was:", wrapper: :vertical_collection_inline, class: "d-none", id: "evaluation" %>
       </div>
         <%#= f.association :officer, as: :grouped_select, group_method: :group_by_cities, group_label_method: :officer_city, include_blank: "Please Choose...", class: "officer-select2", input_html: { data: {officers: "text"} } %>
-        <label for="selectofficer">Officers Involved</label>
+        <div class="officers">
+          <label for="selectofficer">Officers Involved</label>
         <select id="selectofficer" data-officers="<%= @officers.to_json %>" name="report[officer_id]" class="form-control" style="width: 100%"></select>
-        <%= f.input :address, label: "Location of the encounter:" %>
+        </div>
+
+        <div class="location-input">
+           <%= f.input :address, label: "Location of the encounter:" %>
+        </div>
+
         <%= f.association :city, label: "City" %>
         <%= f.input :content, placeholder: "I was peacefully protesting when..." %>
         <%= f.input :photos, label: "📸 Upload photos or videos:", label_html: { class: 'upload-photo'}, as: :file, input_html: { multiple: true, class: 'd-none', id: 'photo-input' } %>
@@ -80,6 +89,9 @@
     </div>
   </div>
 </div>
+  </div>
+</div>
+
 
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
