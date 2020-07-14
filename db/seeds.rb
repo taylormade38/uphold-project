@@ -73,7 +73,7 @@ cities.each do |address|
   report.save!
   report_counter +=1
   p report_counter
-  end
+end
 
 
 tag1 = {name: 'Weapon Used', info: 'The officer used a weapon.'}
