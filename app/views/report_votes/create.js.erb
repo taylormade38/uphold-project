@@ -1,0 +1,2 @@
+var partial = '<%= j render "report_votes/upvote", report: @report %>'
+document.querySelector('[data-report="upvote-<%= @report.id %>"]').innerHTML = partial
