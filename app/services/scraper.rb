@@ -27,6 +27,6 @@ class Scraper
       response = JSON.parse(html_file)
       places << response["result"]
     end
-    places
+    places.first(5)
   end
 end
