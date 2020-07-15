@@ -11,7 +11,20 @@
     <%= submit_tag "Search", class: "btn btn-outline-dark ml-2" %>
     <% end %>
 </div>
-<div><%= link_to "Filter", root_path, class:'btn btn-outline-dark' %> </div>
+<div class="sort-button">
+  <%= form_tag root_path, method: :get, class: "d-flex sort-icon" do %>
+  <%= submit_tag "Sort", class: "btn btn-outline-dark ml-2" %>
+    <% if !params[:sort].present? || params[:sort] == 'down'  %>
+        <%= text_field_tag :sort,
+        params[:sort], value: 'up',
+        class: "form-control d-none nav-search-group" %><i class="fas fa-caret-up btn btn-outline-dark ml-2"></i>
+      <% else %>
+        <%= text_field_tag :sort,
+        params[:sort], value: 'down',
+        class: "form-control d-none nav-search-group" %><i class="fas fa-caret-down btn btn-outline-dark ml-2"></i>
+      <% end %>
+    <% end %>
+  </div>
 </div>
 
 </div>
