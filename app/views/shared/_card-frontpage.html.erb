@@ -4,11 +4,13 @@
   <%= link_to city_path(city) do %>
       <div class="card-category <%= city.name.downcase %>-picture" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= city.find_photo %>)">
       <div class="overlay-frontpage-card">
-        <p>UpHold Reports: <%= city.reports.length %>
-      Formal PD Complaints: <%= city.complaints_against_police %>
-      Use of Force: <%= city.use_of_force_incidents %>
-      Officer Involved Shootings: <%= city.officer_involved_shootings %>
-      New Laws Proposed: <%= rand(1..5).to_i %>"</p>
+        <ul class="card-fp-list">
+        <li>🚨 <small> UpHold Reports:</small> <%= city.reports.length %></li>
+        <li>📝 <small>Formal PD Complaints:</small> <%= city.complaints_against_police %></li>
+        <li>👊 <small>Use of Force:</small> <%= city.use_of_force_incidents %></li>
+        <li>🔫 <small>Officer Involved Shootings:</small> <%= city.officer_involved_shootings %></li>
+        <li>⚖️ <small>New Laws Proposed:</small> <%= rand(1..5).to_i %></li>
+      </ul>
       </div>
       <span class="city-card-title"><%= city.name %></span>
       <div class="card-description">
