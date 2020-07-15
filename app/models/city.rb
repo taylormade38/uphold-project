@@ -38,4 +38,24 @@ class City < ApplicationRecord
         (self.use_of_force_unarmed.to_f / self.use_of_force_incidents) * 100
     end
 
+    def types_of_reports
+        hash = {}
+        positive_reports = self.reports.where(evaluation: "positive").count
+        negative_reports = self.reports.where(evaluation: "negative").count
+        neutral_reports = self.reports.where(evaluation: "neutral").count
+        hash["Positive Reports"] = positive_reports
+        hash["Negative Reports"] = negative_reports
+        hash["Neutral Reports"] = neutral_reports
+        return hash
+    end
+
+    def self.complaints_by_city
+        hash = {}
+        City.all.each do |city|
+            hash.store("#{city.name}, #{city.state}", city.complaints_against_police)
+        end
+        hash
+    end
+
+
 end
