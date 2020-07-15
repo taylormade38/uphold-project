@@ -146,6 +146,7 @@ $gray: #9b9b9b;
   .select2-container--default .select2-selection--single {
     border: 0;
     border-bottom: 2px solid $gray;
+    border-radius: 0px;
   }
   #report_address{
    border: 0;
@@ -172,9 +173,14 @@ $gray: #9b9b9b;
 
 #report_city_id {
   color: $gray;
+  border-radius: 0;
 }
 
 legend.col-form-label{
   color: $gray;
   font-size: 20px;
+}
+
+.select2-selection--single {
+  border-radius: 0px;
 }
