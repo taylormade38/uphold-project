@@ -4,13 +4,19 @@
   <h2 id="pro-head">Report #<%= @report.id %></h2>
   <div class="row">
     <div class="col-md-4 img">
-      <img src="https://ktla.com/wp-content/uploads/sites/4/2020/06/GettyImages-1216828423.jpg?w=2560&h=1440&crop=1" width="250" crop="scale" />
+      <% if @report.photos.attached? %>
+        <% @report.photos.each do |photo| %>
+         <%= cl_image_tag photo.key, width: 200 %>
+       <% end %>
+      <% else %>
+        <%= image_tag 'placeholder.svg', class: 'product-image rounded' %>
+      <% end %>
     </div>
     <div class="col-md-8 details">
       <p><%= @report.content %></p>
       <h5><i class="fas fa-map-marker-alt"></i> <%= @report.address %></h5>
       <br>
-      <h5><i class="fas fa-address-card"></i> <%= link_to @report.officer.first_name, officer_path(@report.officer) %></h5>
+      <h5><i class="fas fa-address-card"></i> <%= link_to "#{@report.officer.first_name} #{@report.officer.last_name}", officer_path(@report.officer) %></h5>
       <br>
       Created: <%= @report.created_at.strftime('%A, %d %b %Y %l:%M %p') %>
     </div>
