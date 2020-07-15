@@ -28,12 +28,18 @@
           <select id="selectofficer" data-officers="<%= @officers.to_json %>" name="report[officer_id]" class="officer-select" style="width: 100%"></select>
           </div>
 
-          <%= f.input :address, label: false %>
+           <div class="form__group field">
+            <input type="text" class="form__field" id="report_address" name="address" />
+            <label for="address" class="form__label">Enter a location...</label>
+          </div>
+          <div class="d-none">
+            <%= f.input :address, label: false %>
+          </div>
           <%= f.association :city, label: false, prompt: "Select a City" %>
 
           <div class="form__group field">
             <textarea type="text" class="form__field" id="report-content" placeholder="ie. I was peacefully protesting when..." name="name" rows="3" required rows="1"></textarea>
-            <label for="name" class="form__label">Tell us what happened: ie. I was peacefully protesting when...</label>
+            <label for="name" class="form__label">Tell us what happened: (ie. I was peacefully protesting when...)</label>
           </div>
 
           <div class="d-none">
