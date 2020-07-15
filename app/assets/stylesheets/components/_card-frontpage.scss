@@ -6,6 +6,8 @@
 
 .overlay-frontpage-card {
   position: absolute;
+  text-align: center;
+  list-style: none;
   top: 0;
   bottom: 0;
   left: 0;
@@ -14,7 +16,19 @@
   width: 100%;
   opacity: 0;
   transition: .5s ease;
+  font-size: 15px;
+  background-color:rgba(0,0,0,0.6);
+  color: #fff;
+}
+.overlay-frontpage-card li {
+  padding: 3px;
 
+}
+
+.card-fp-list {
+  margin-top: 40px;
+  margin-right: 50px;
+  list-style: none;
 }
 
 
@@ -57,25 +71,6 @@
   transition: 0.5s;
 }
 
-.card-category:after {
-  text-align: center;
-  font-size: 14px;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 50px;
-  word-wrap: break-word;
-  overflow: hidden;
-  background-color:rgba(0,0,0,0.6);
-  color: #fff;
-  opacity: 0;
-  content:attr(data-text);
-}
-.card-category:hover:after {
-  opacity: 1;
-}
 
 .card-description {
   font-size: 12px;
