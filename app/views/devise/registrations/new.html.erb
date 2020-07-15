@@ -15,6 +15,16 @@
             autofocus: true,
             input_html: { autocomplete: "email" }%>
 
+            <%= f.input :first_name,
+            required: true,
+            placeholder: "Alex",
+            input_html: { autocomplete: "first-name" }%>
+
+            <%= f.input :last_name,
+            required: false,
+            placeholder: "Smith",
+            input_html: { autocomplete: "last-name" }%>
+
             <%= f.input :password,
             placeholder: "••••••",
             required: true,
