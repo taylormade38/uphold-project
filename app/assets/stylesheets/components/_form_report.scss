@@ -142,4 +142,18 @@ $gray: #9b9b9b;
   &:required,&:invalid { box-shadow:none; }
 }
 
+.form-report {
+  .select2-container--default .select2-selection--single {
+    border: 0;
+    border-bottom: 2px solid $gray;
+  }
+  #report_address{
+   border: 0;
+    border-bottom: 2px solid $gray;
+  }
+  #report_city_id{
+     border: 0;
+    border-bottom: 2px solid $gray;
+  }
+}
 

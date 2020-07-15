@@ -24,16 +24,16 @@
           <br>
           <%#= f.association :officer, as: :grouped_select, group_method: :group_by_cities, group_label_method: :officer_city, include_blank: "Please Choose...", class: "officer-select2", input_html: { data: {officers: "text"} } %>
           <div class="officer-select">
-            <label id="officer-label" for="selectofficer">Officers Involved:</label>
-          <select id="selectofficer" data-officers="<%= @officers.to_json %>" name="report[officer_id]" class="form-control form__label" style="width: 100%"></select>
+            <label id="officer-label" for="selectofficer">Officers I Interacted With:</label>
+          <select id="selectofficer" data-officers="<%= @officers.to_json %>" name="report[officer_id]" class="officer-select" style="width: 100%"></select>
           </div>
 
-          <%= f.input :address, label: "Location of the encounter:" %>
-          <%= f.association :city, label: "City" %>
+          <%= f.input :address, label: false %>
+          <%= f.association :city, label: false, prompt: "Select a City" %>
 
           <div class="form__group field">
             <textarea type="text" class="form__field" id="report-content" placeholder="ie. I was peacefully protesting when..." name="name" rows="3" required rows="1"></textarea>
-            <label for="name" class="form__label">Content: ie. I was peacefully protesting when...</label>
+            <label for="name" class="form__label">Tell us what happened: ie. I was peacefully protesting when...</label>
           </div>
 
           <div class="d-none">
