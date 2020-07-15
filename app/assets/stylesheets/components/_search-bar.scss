@@ -16,3 +16,25 @@
 .index-search {
   margin: 20px;
 }
+
+.arrow-button{
+  border-left: 0px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  &:hover{
+    background-color: white !important;
+    color: #343a40 !important;
+
+  }
+  &:focus{
+    box-shadow: none !important
+
+  }
+
+}
+
+
+.sort-btn{
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
