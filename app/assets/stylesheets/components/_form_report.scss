@@ -39,8 +39,9 @@ div.form-report {
   max-height: 26px;
   min-width: 68px;
   &:hover {
-    background-color: rgba(255,185,52,0.7);
+    background-color: rgba(255,185,52,0.9);
     cursor: pointer;
+    color: #2d2d2d;
   }
   &.active {
     background-color: #FFB934;
@@ -156,3 +157,19 @@ $gray: #9b9b9b;
   }
 }
 
+#new_report {
+  label {
+    color: #9b9b9b;
+  }
+  label.tag-choice {
+    color: #44433b;
+  }
+}
+
+#select2-selectofficer-container {
+  color: $gray;
+}
+
+#report_city_id {
+  color: $gray;
+}
