@@ -76,17 +76,33 @@ cities.each do |address|
 end
 
 
-tag1 = {name: 'Weapon Used', info: 'The officer used a weapon.'}
-tag2 = {name: 'Physical Assault', info: 'The officer physically assaulted me.'}
-tag3 = {name: 'Weapon Used', info: 'The officer used a weapon against me, like a taser, baton, pepper spray, gun, etc.'}
-tag4 = {name: 'Racially Profiled', info: 'The officer only stopped me because of my skin color. I was doing nothing wrong.'}
-tag5 = {name: 'Excessive Force', info: 'The officer used an unnecessary amount of force to hold me.'}
-tag6 = {name: 'Community Involvement', info: 'The officer is engaged in our community.'}
-tag7 = {name: 'Education', info: 'The officer taught participated in an event where he taught the community something new.'}
-tag8 = {name: 'Chokehold', info: 'The officer held me in a chokehold'}
+tag1 = {name: 'Physical Assault', info: 'The officer physically assaulted me.'}
+tag2 = {name: 'Excessive Force', info: 'The officer used an unnecessary amount of force to hold me.'}
+tag3 = {name: 'Chokehold', info: 'The officer held me in a chokehold.'}
+tag4 = {name: 'Weapon Used', info: 'The officer used a weapon against me, like a taser, baton, pepper spray, gun, etc.'}
+tag5 = {name: 'Shooting', info: 'The officer shot a gun.'}
+tag6 = {name: 'Taser', info: 'The officer used a taser on me.'}
+tag7 = {name: 'Rubber Bullets', info: 'The officer shot rubber bullets at me.'}
+tag8 = {name: 'Tear Gas', info: 'The officer used tear gas on me.'}
+tag9 = {name: 'Baton', info: 'The officer used a baton to hit me.'}
+tag10 = {name: 'Racially Profiled', info: 'The officer only stopped me because of my skin color. I was doing nothing wrong.'}
+tag11 = {name: 'Verbal Abuse', info: 'The officer said said harmful things.'}
+tag12 = {name: 'Hate Speech', info: 'The officer said something hateful towards me.'}
+tag13 = {name: 'Racist Remarks', info: 'The officer said something hateful towards me.'}
+tag14 = {name: 'Sexist Comments', info: 'The officer said something sexist or inappropriate.'}
+tag15 = {name: 'Sexual Harrassment', info: 'The officer sexually harrassed me and made me uncomfortable'}
+
+tag16 = {name: 'Community Involvement', info: 'The officer is engaged in our community.'}
+tag17 = {name: 'Kindness', info: 'The officer showed me kindness.'}
+tag18 = {name: 'Education', info: 'The officer taught participated in an event where he taught the community something new.'}
+tag19 = {name: 'Protection', info: 'The officer protected me in a dangerous situation.'}
+tag20 = {name: 'Bravery', info: 'The officer was very brave.'}
+tag21 = {name: 'Empathy', info: 'The officer showed empathy towards me.'}
 
 
-[ tag1, tag2, tag3, tag4, tag5, tag6, tag7, tag8 ].each do |attributes|
+
+
+[ tag1, tag2, tag3, tag4, tag5, tag6, tag7, tag8, tag9, tag10, tag11, tag12, tag13, tag14, tag15, tag16, tag17, tag18, tag19, tag20, tag21 ].each do |attributes|
   tag = Tag.create!(attributes)
   puts "Created #{tag.name}"
 end
