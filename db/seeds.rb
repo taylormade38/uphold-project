@@ -9,10 +9,16 @@ require 'open-uri'
 # #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 # #   Character.create(name: 'Luke', movie: movies.first)
 puts "Cleaning database..."
+ReportVote.destroy_all
 Report.destroy_all
 Officer.destroy_all
 User.destroy_all
 City.destroy_all
+ReportTag.destroy_all
+Tag.destroy_all
+
+
+
 5.times do
   User.create!(email: Faker::Internet.email, password: 'password', city: City.all.sample )
 end
