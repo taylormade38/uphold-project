@@ -23,17 +23,21 @@
           </div>
           <br>
           <%#= f.association :officer, as: :grouped_select, group_method: :group_by_cities, group_label_method: :officer_city, include_blank: "Please Choose...", class: "officer-select2", input_html: { data: {officers: "text"} } %>
-          <label id="officer-label" for="selectofficer">Officers Involved:</label>
-          <select id="selectofficer" data-officers="<%= @officers.to_json %>" name="report[officer_id]" class="form-control" style="width: 100%"></select>
+          <div class="officer-select">
+            <label id="officer-label" for="selectofficer">Officers Involved:</label>
+          <select id="selectofficer" data-officers="<%= @officers.to_json %>" name="report[officer_id]" class="form-control form__label" style="width: 100%"></select>
+          </div>
+
           <%= f.input :address, label: "Location of the encounter:" %>
           <%= f.association :city, label: "City" %>
 
           <div class="form__group field">
-            <input type="input" class="form__field" placeholder="ie. I was peacefully protesting when..." name="name" id='name' required />
+            <textarea type="text" class="form__field" id="report-content" placeholder="ie. I was peacefully protesting when..." name="name" rows="3" required rows="1"></textarea>
             <label for="name" class="form__label">Content: ie. I was peacefully protesting when...</label>
           </div>
+
           <div class="d-none">
-            <%= f.input :content, placeholder: "I was peacefully protesting when..." %>
+            <%= f.input :content, as: :text, input_html: { rows: 1 }, placeholder: "I was peacefully protesting when...", class: "form__field" %>
           </div>
 
 
@@ -95,4 +99,5 @@
     </div>
   </div>
 </div>
+
 
