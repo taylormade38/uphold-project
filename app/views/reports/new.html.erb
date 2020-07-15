@@ -1,60 +1,65 @@
 
 <div class="container new-report-container padding-top-xl d-flex">
   <div class="row">
-      <h1 class="report-tips-title">Share Your Story</h1>
-      <div class="report-tips-container">
-        <h2>Report Do's and Don'ts</h2>
-        <div class="report-tips-info">
-          <%= render "shared/report-tips" %>
-        </div>
+    <h1 class="report-tips-title">Share Your Story</h1>
+    <div class="report-tips-container">
+      <h2>Report Do's and Don'ts</h2>
+      <div class="report-tips-info">
+        <%= render "shared/report-tips" %>
       </div>
+    </div>
 
-  <div class="row">
-    <div class="col-xs-12 col-sm-8 d-flex justify-content-center mx-auto">
-      <div class="form-report">
-        <h2>Write a Report</h2>
-        <%= simple_form_for @report do |f| %>
-        <label for="evaluation"> My experience was: </label>
-        <span class="emoji" id="positive"><i class="far fa-smile"></i></span>
-        <span class="emoji" id="neutral"><i class="far fa-meh"></i></span>
-        <span class="emoji" id="negative"><i class="far fa-angry"></i></span>
-        <div class="d-none">
-        <%= f.input :evaluation, as: :radio_buttons, collection: Report::EVALUATION, wrapper: :vertical_collection_inline %>
-      </div>
-      <br>
-        <%#= f.association :officer, as: :grouped_select, group_method: :group_by_cities, group_label_method: :officer_city, include_blank: "Please Choose...", class: "officer-select2", input_html: { data: {officers: "text"} } %>
-        <label id="officer-label" for="selectofficer">Officers Involved:</label>
-        <select id="selectofficer" data-officers="<%= @officers.to_json %>" name="report[officer_id]" class="form-control" style="width: 100%"></select>
-        <%= f.input :address, label: "Location of the encounter:" %>
-        <%= f.association :city, label: "City" %>
-        <%= f.input :content, placeholder: "I was peacefully protesting when..." %>
-        <%= f.input :photos, label: "📸 Upload photos or videos:", label_html: { class: 'upload-photo'}, as: :file, input_html: { multiple: true, class: 'd-none', id: 'photo-input' } %>
-        <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 d-flex justify-content-center mx-auto">
+        <div class="form-report">
+          <h2>Write a Report</h2>
+          <%= simple_form_for @report do |f| %>
+          <label for="evaluation"> My experience was: </label>
+          <span class="emoji" id="positive"><i class="far fa-smile"></i></span>
+          <span class="emoji" id="neutral"><i class="far fa-meh"></i></span>
+          <span class="emoji" id="negative"><i class="far fa-angry"></i></span>
+          <div class="d-none">
+            <%= f.input :evaluation, as: :radio_buttons, collection: Report::EVALUATION, wrapper: :vertical_collection_inline %>
+          </div>
+          <br>
+          <%#= f.association :officer, as: :grouped_select, group_method: :group_by_cities, group_label_method: :officer_city, include_blank: "Please Choose...", class: "officer-select2", input_html: { data: {officers: "text"} } %>
+          <label id="officer-label" for="selectofficer">Officers Involved:</label>
+          <select id="selectofficer" data-officers="<%= @officers.to_json %>" name="report[officer_id]" class="form-control" style="width: 100%"></select>
+          <%= f.input :address, label: "Location of the encounter:" %>
+          <%= f.association :city, label: "City" %>
 
-
-        <fieldset class="form-group">
-          <legend class="col-form-label pt-0">Add Some Tags</legend>
-          <input type="hidden" name="report[tag_ids][]" value="">
-          <div class="tag-choices">
-            <% Tag.all.each do |tag| %>
-
-            <input type="checkbox" class="d-none" value="<%= tag.id %>" name="report[tag_ids][]" id="report_tag_ids_<%= tag.id %>">
-
-            <label class="tag-choice" for="report_tag_ids_<%= tag.id %>"><%= tag.name %></label>
-            <% end %>
+          <div class="form__group field">
+            <input type="input" class="form__field" placeholder="ie. I was peacefully protesting when..." name="name" id='name' required />
+            <label for="name" class="form__label">Content: ie. I was peacefully protesting when...</label>
+          </div>
+          <div class="d-none">
+            <%= f.input :content, placeholder: "I was peacefully protesting when..." %>
           </div>
 
-        </fieldset>
-        <%= simple_fields_for :other do |o| %>
-        <%= o.input :user_city, as: :hidden %>
-        <% end %>
-        <%= f.submit "Submit Your Report", class: "btn btn-dark", id: "submit-report" ,data: {toggle: "modal", target: "#resourcesModal"} %>
-        <% end %>
-      </div>
 
+          <%= f.input :photos, label: "📸 Upload photos or videos:", label_html: { class: 'upload-photo'}, as: :file, input_html: { multiple: true, class: 'd-none', id: 'photo-input' } %>
+          <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
+
+
+          <fieldset class="form-group">
+            <legend class="col-form-label pt-0">Add Some Tags</legend>
+            <input type="hidden" name="report[tag_ids][]" value="">
+            <div class="tag-choices">
+              <% Tag.all.each do |tag| %>
+              <input type="checkbox" class="d-none" value="<%= tag.id %>" name="report[tag_ids][]" id="report_tag_ids_<%= tag.id %>">
+              <label class="tag-choice" for="report_tag_ids_<%= tag.id %>"><%= tag.name %></label>
+              <% end %>
+            </div>
+          </fieldset>
+          <%= simple_fields_for :other do |o| %>
+          <%= o.input :user_city, as: :hidden %>
+          <% end %>
+          <%= f.submit "Submit Your Report", class: "btn btn-dark", id: "submit-report" ,data: {toggle: "modal", target: "#resourcesModal"} %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 </div>
 
 <div class="modal fade" id="resourcesModal" tabindex="-1" role="dialog" aria-labelledby="resourcesModalLabel" aria-hidden="true">
@@ -74,10 +79,10 @@
         <% cities_array = City.all.map { |city| [city.name, city.id] } %>
         <div class="form-inputs">
           <select name="" id="select-city-options">
-          <%= options_for_select(cities_array) %>
+            <%= options_for_select(cities_array) %>
           </select>
-          </div>
-          <% end %>
+        </div>
+        <% end %>
 
 
       </div>
