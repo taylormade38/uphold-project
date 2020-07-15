@@ -1,6 +1,6 @@
 
 <div style="padding-top: 5rem">
-    <div class="city-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= @city.find_photo(1200) %>')">
+    <div class="city-banner <%= @city.name.downcase %>-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= @city.find_photo(1200) %>')">
 
         <div id="city-title">
           <h1 class="text-center"><%= @city.name %></h1>
