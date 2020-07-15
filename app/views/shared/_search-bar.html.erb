@@ -12,19 +12,23 @@
     <% end %>
 </div>
 <div class="sort-button">
-  <%= form_tag root_path, method: :get, class: "d-flex sort-icon" do %>
+  <%= form_tag root_path, method: :get, class: "d-flex" do %>
   <%= submit_tag "Sort", class: "btn btn-outline-dark ml-2" %>
     <% if !params[:sort].present? || params[:sort] == 'down'  %>
         <%= text_field_tag :sort,
         params[:sort], value: 'up',
-        class: "form-control d-none nav-search-group" %><i class="fas fa-caret-up btn btn-outline-dark ml-2"></i>
+        class: "form-control d-none nav-search-group" %>
+        <button class="btn btn-outline-dark arrow-button"><i class="fas fa-caret-up "></i></button>
+
       <% else %>
         <%= text_field_tag :sort,
         params[:sort], value: 'down',
-        class: "form-control d-none nav-search-group" %><i class="fas fa-caret-down btn btn-outline-dark ml-2"></i>
+        class: "form-control d-none nav-search-group" %>
+         <button class="btn btn-outline-dark arrow-button"><i class="fas fa-caret-down "></i></button>
       <% end %>
     <% end %>
   </div>
 </div>
 
 </div>
+
