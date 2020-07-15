@@ -7,6 +7,7 @@ class Report < ApplicationRecord
   has_many :tags, through: :report_tags
   has_many :report_votes
   has_many :report_bookmarks
+  has_many_attached :photos
 
   validates :city, presence: true
   validates :content, presence: true
