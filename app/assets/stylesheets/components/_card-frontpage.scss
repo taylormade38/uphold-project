@@ -4,6 +4,21 @@
   grid-gap: 16px;
 }
 
+.overlay-frontpage-card {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+
+}
+
+
+
 .card-category {
   background-size: cover;
   background-position: center;
@@ -28,6 +43,10 @@
 
 .card-category:hover {
   background-size: 105%;
+}
+
+.card-category:hover .overlay-frontpage-card {
+  opacity: 1;
 }
 
 .card-category:hover .city-card-title {
