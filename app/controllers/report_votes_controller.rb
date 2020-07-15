@@ -4,6 +4,9 @@ class ReportVotesController < ApplicationController
     @report_vote = ReportVote.new(user: current_user, report: @report)
     authorize @report_vote
     @report_vote.save
-    redirect_to @report.city
+    respond_to do |format|
+      format.html {redirect_to @report.city}
+      format.js
+    end
   end
 end

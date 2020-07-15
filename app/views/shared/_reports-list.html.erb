@@ -1,13 +1,7 @@
 
-
   <li class="product">
-    <div class="product-upvote text-center">
-      <% if policy(ReportVote.new(report: report)).create? %>
-        <%= link_to report_report_votes_path(report), method: :post do %>
-      <i class="fa fa-caret-up"></i>
-      <% end %>
-      <% end %>
-      <p><%= report.report_votes.count %></p>
+    <div class="product-upvote text-center" data-report="upvote-<%= report.id %>">
+      <%= render 'report_votes/upvote', report: report %>
       </div>
       <% if report.photos.attached? %>
         <% report.photos.each do |photo| %>

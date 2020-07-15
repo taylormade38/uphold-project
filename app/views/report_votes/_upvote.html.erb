@@ -1,0 +1,6 @@
+<% if policy(ReportVote.new(report: report)).create? %>
+  <%= link_to report_report_votes_path(report), method: :post, remote: :true do %>
+    <i class="fa fa-caret-up"></i>
+    <% end %>
+    <% end %>
+    <p><%= report.report_votes.count %></p>
