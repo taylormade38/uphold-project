@@ -13,6 +13,13 @@ class PagesController < ApplicationController
     end
     # Reference picture link
     # push picture
+    if params[:sort].present?
+      if params[:sort] == 'up'
+        @cities = @cities.sort_by { |city| -city.reports.count }
+      elsif params[:sort] == 'down'
+        @cities = @cities.sort_by { |city| city.reports.count }
+      end
+    end
     @user = current_user
   end
 end
