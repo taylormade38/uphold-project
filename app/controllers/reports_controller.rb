@@ -23,6 +23,7 @@ class ReportsController < ApplicationController
       current_user.save
     end
     @report.user = current_user
+
     @report.city = City.find(params[:report][:city_id])
     # See if officer exists
 
@@ -37,6 +38,7 @@ class ReportsController < ApplicationController
     end
     # If not, add officer
     if @report.save!
+
       redirect_to city_path(@report.city)
     else
       render :new
