@@ -6,10 +6,10 @@ class ReportBookmarkPolicy < ApplicationPolicy
   end
 
   def create?
-    !user.report_bookmarks.pluck(:report_id).include?(record.report_id)
+    user && !user.report_bookmarks.pluck(:report_id).include?(record.report_id)
   end
 
   def destroy?
-    user.report_bookmarks.pluck(:report_id).include?(record.report_id) && record.user == user
+    user && user.report_bookmarks.pluck(:report_id).include?(record.report_id) && record.user == user
   end
 end
