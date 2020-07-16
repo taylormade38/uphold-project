@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     resources :report_bookmarks, only: [:create]
   end
 
+  resources :report_votes, only: [:destroy]
+
   get "/dashboard", to: "dashboards#dashboard"
   delete "/report_bookmarks/:report_id", to: "report_bookmarks#destroy", as: 'report_report_bookmark'
   get "/officers/search", to: "officers#search", as: "officers_search"
