@@ -11,6 +11,7 @@
         <%= image_tag 'placeholder.svg', class: 'product-image rounded' %>
       <% end %>
     <div class="product-description">
+      <div class="report-title">
       <h3>Report #<%= report.id %></h3>
       <p><small><%= report.created_at.strftime("%e %b %Y %H:%M:%S%p") %></small></p>
       <p><%= report.content.first(280) %>... <%= link_to "See More", report_path(report) %></p>
@@ -24,19 +25,30 @@
     </div>
 
     <div class="evaluation-container" style="position: top;">
+
     <% if report.evaluation == "positive" %>
-        <div class="report-evaluation d-flex justify-content-center align-items-center col-3 text-success">
+        <div class="evaluation btn-success text-center rounded">
           <p><%= report.evaluation %></p>
         </div>
         <% elsif report.evaluation == "negative" %>
-        <div class="report-evaluation d-flex justify-content-center align-items-center col-3 text-danger">
+        <div class="evaluation btn-danger text-center rounded">
           <p><%= report.evaluation %></p>
         </div>
-        <% elsif report.evaluation == "netural" %>
-        <div class="report-evaluation d-flex justify-content-center align-items-center col-3 text-secondary">
+        <% elsif report.evaluation == "neutral" %>
+        <div class="evaluation btn-secondary text-center rounded">
           <p><%= report.evaluation %></p>
         </div>
       <% end %>
+    </div>
+    </div>
+      <p><small><%= report.created_at.strftime("%e %b %Y %H:%M:%S%p") %></small></p>
+      <p><%= report.content.first(280) %>... <%= link_to "See More", report_path(report) %></p>
+
+      <ul class="list-inline product-controls">
+        <li><a href=""><i class="fab fa-instagram"></i></a></li>
+        <li><a href=""><i class="fab fa-facebook"></i></a></li>
+        <li><a href=""><i class="fab fa-twitter"></i></a></li>
+      </ul>
     </div>
 
     <div class="bookmark-container">
