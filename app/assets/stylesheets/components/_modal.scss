@@ -1,0 +1,24 @@
+div.modal-content {
+  border-radius: 10px;
+}
+
+#select-city-options {
+  width: 200px;
+    border: none;
+    border-bottom: 2px solid $gray;
+     border-image: linear-gradient(to right, $primary,$secondary);
+  border-image-slice: 1;
+  outline: none;
+}
+
+div.modal-body p {
+  font-family: $body-font;
+}
+
+#yes-please {
+  background-color: rgba(252,145,45,0.7);
+  &:hover {
+    background-color: rgba(252, 145, 45, 1);
+    color: white;
+  }
+}
