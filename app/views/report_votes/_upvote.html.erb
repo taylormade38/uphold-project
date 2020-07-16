@@ -4,3 +4,8 @@
     <% end %>
 <% end %>
     <p><%= report.report_votes.count %></p>
+<% if ReportVote.where(user: current_user, report: report).present? && policy(ReportVote.where(user: current_user, report: report).first).destroy? %>
+  <%= link_to report_vote_path(ReportVote.where(user: current_user, report: report).first.id), method: :delete, remote: :true do %>
+    <i class="fa fa-caret-down"></i>
+    <% end %>
+<% end %>
