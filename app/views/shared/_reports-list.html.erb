@@ -5,7 +5,11 @@
       </div>
       <% if report.photos.attached? %>
         <% report.photos.each do |photo| %>
+        <% if photo.blob.content_type == "image/jpeg" %>
          <%= cl_image_tag photo.key, width: 200 %>
+         <% else %>
+          <%= cl_video_tag photo.key, width: 200 %>
+         <% end %>
        <% end %>
       <% else %>
         <%= image_tag 'placeholder.svg', class: 'product-image rounded' %>

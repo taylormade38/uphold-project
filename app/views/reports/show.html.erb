@@ -11,7 +11,12 @@
     <div class="col-md-4 img">
       <% if @report.photos.attached? %>
         <% @report.photos.each do |photo| %>
-         <%= cl_image_tag photo.key, width: 200 %>
+          <% if photo.blob.content_type == "image/jpeg" %>
+            <%= cl_image_tag photo.key, width: 200 %>
+         <% else %>
+          <%= cl_video_tag photo.key, width: 200, controls: true, loop: true %>
+
+         <% end %>
        <% end %>
       <% else %>
         <%= image_tag 'placeholder.svg', class: 'product-image rounded' %>

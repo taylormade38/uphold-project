@@ -24,7 +24,7 @@ class ReportsController < ApplicationController
     end
     @report.user = current_user
 
-    @report.city = City.find(params[:report][:city_id])
+    # @report.city = City.find(params[:report][:city_id])
     # See if officer exists
 
     # If so, assign officer to report
