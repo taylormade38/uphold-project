@@ -8,15 +8,15 @@
   <% next if place.nil? %>
   <li><%= place["name"] %>:
     <ul>
-      <li class="resource-info">📞 <%= place["formatted_phone_number"] %></li>
-      <li class="resource-info">💻 <%= place["website"] %></li>
+      <li class="resource-info"><%= place["formatted_phone_number"] %></li>
+      <li class="resource-info"><%= place["website"] %></li>
     </ul>
   <% end %>
 </ul>
 
 <p>Didn't find what you're looking for? Visit <a href="https://findtreatment.samhsa.gov/locator">SAMHSA</a> for a more comprehensive search.</p>
 
-<h3>Legal Resources ⚖️:</h3>
+<h3>Legal Resources:</h3>
 <p>Check <a href="https://www.nlg-npap.org/find-attorney/">this website</a> to find an attorney who specializes in law enforcement misconduct in your state.</p>
 
 <p>Other Mental Health Resources:</p>
