@@ -13,6 +13,10 @@ class User < ApplicationRecord
     self.report_bookmarks.map(&:report)
   end
 
+  def upvoted_reports
+    self.report_votes.map(&:report)
+  end
+
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice("provider", "uid")
     user_params.merge! auth.info.slice("email", "first_name", "last_name")

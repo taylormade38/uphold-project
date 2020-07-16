@@ -36,7 +36,15 @@
 
           <div class="tab-pane fade show active" id="pills-activity" role="tabpanel" aria-labelledby="pills-activity-tab">
             <div class="row">
+              <% if current_user.upvoted_reports.empty? %>
               <p>You don't have any activity to show. <%= link_to "Browse city reports here!", cities_path %></p>
+              <% else %>
+              <ul class="list-unstyled">
+              <% current_user.upvoted_reports.each do |report| %>
+                <%= render partial: 'shared/reports-list', locals: { report: report } %>
+              <% end %>
+            </ul>
+            <% end %>
             </div>
           </div>
           <div class="tab-pane fade" id="pills-report" role="tabpanel" aria-labelledby="pills-report-tab">
