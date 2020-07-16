@@ -1,0 +1,9 @@
+<% if policy(ReportBookmark.new(report: report)).create? %>
+  <%= link_to report_report_bookmarks_path(report), method: :post, remote: :true do %>
+    <i class="far fa-bookmark"></i>
+    <% end %>
+  <% else %>
+     <%= link_to report_report_bookmark_path(report), method: :delete, remote: :true do %>
+    <i class="fas fa-bookmark"></i>
+  <% end %>
+<% end %>

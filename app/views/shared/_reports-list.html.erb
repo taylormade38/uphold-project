@@ -33,15 +33,7 @@
       <p><%= report.content.first(280) %>... <%= link_to "See More", report_path(report) %></p>
 
     </div>
-    <div class="bookmark-container">
-     <% if policy(ReportBookmark.new(report: report)).create? %>
-     <%= link_to report_report_bookmarks_path(report), method: :post do %>
-     <i class="far fa-bookmark"></i>
-     <% end %>
-     <% else %>
-     <%= link_to report_report_bookmark_path(report), method: :delete do %>
-     <i class="fas fa-bookmark"></i>
-     <% end %>
-     <% end %>
+    <div class="bookmark-container" data-bookmark="bookmark-<%= report.id %>">
+     <%= render 'report_bookmarks/bookmark', report: report %>
    </div>
  </div>
