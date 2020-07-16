@@ -34,6 +34,15 @@ class City < ApplicationRecord
         City.all.map { |city| city.name }
     end
 
+    def city_class_name
+        new_name = self.name
+        if new_name.split.count > 1
+           new_name = self.name.split.join("-").downcase
+        else
+           new_name.downcase
+        end
+    end
+
     def use_of_force
         (self.use_of_force_unarmed.to_f / self.use_of_force_incidents) * 100
     end

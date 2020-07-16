@@ -3,7 +3,7 @@
  <% @cities.each do |city| %>
   <%= link_to city_path(city) do %>
     <div class="parent">
-      <div class="card-category <%= city.name.downcase %>-picture">
+      <div class="card-category <%= city.city_class_name %>-picture">
       <div class="overlay-frontpage-card">
         <ul class="card-fp-list">
         <li>🚨 <small> UpHold Reports:</small> <%= city.reports.length %></li>
