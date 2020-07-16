@@ -6,6 +6,6 @@ class ReportVotePolicy < ApplicationPolicy
   end
 
   def create?
-    !user.report_votes.pluck(:report_id).include?(record.report_id)
+    user && !user.report_votes.pluck(:report_id).include?(record.report_id)
   end
 end
