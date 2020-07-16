@@ -23,8 +23,22 @@ class ReportsController < ApplicationController
       current_user.save
     end
     @report.user = current_user
-    @report.officer = Officer.find(params[:report][:officer_id])
-    if @report.save
+
+    @report.city = City.find(params[:report][:city_id])
+    # See if officer exists
+
+    # If so, assign officer to report
+    @report.officer = Officer.find_or_create_by(id: params[:report][:officer_id]) do |officer|
+        officer.id = Officer.last.id + 1
+        full_name = params[:report][:officer_id].split(" ")
+        officer.first_name = full_name[0]
+        officer.last_name = full_name[1]
+        officer.city = City.find(params[:other][:user_city])
+        officer.save
+    end
+    # If not, add officer
+    if @report.save!
+
       redirect_to city_path(@report.city)
     else
       render :new
