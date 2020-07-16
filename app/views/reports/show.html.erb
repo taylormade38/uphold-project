@@ -1,7 +1,14 @@
+<%= set_meta_tags title: "Report ##{@report.id}",
+              description: "#{@report.content.truncate(150)}",
+              keywords: 'Police Brutality, Police, Police Accountability',
+              og: { title: "Report ##{@report.id}", url: "http://project-uphold.herokuapp.com/reports/#{@report.id}", description: "#{@report.content.truncate(150)}", image: @report.photos.first ? @report.photos.first.key : "https://images.unsplash.com/photo-1585236534996-3b117bec1b61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80" } %>
+
 <div class="banner" style="height: 400px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1585236534996-3b117bec1b61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80');">
 </div>
 <div class="container show">
   <h2 id="pro-head">Report #<%= @report.id %></h2>
+     <%= render_shareable :buttons=> ['twitter', 'facebook' ], url: "http://www.projectuphold.com/report/#{@report.id}", :facebook=> {:send=> 'true', :url=> "http://www.projectuphold.com/report/#{@report.id}" } %>
+
   <div class="row">
     <div class="col-md-4 img">
       <% if @report.photos.attached? %>

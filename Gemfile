@@ -26,7 +26,8 @@ gem 'pundit'
 # gem 'image_processing', '~> 1.2'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.12.0'
-
+gem 'shareable'
+gem 'meta-tags'
 gem 'pg_search', '~> 2.3.0'
 
 gem 'geocoder'

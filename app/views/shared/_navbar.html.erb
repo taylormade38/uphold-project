@@ -28,7 +28,7 @@
       <% else %>
       <li class="nav-item dropdown">
         <% if current_user.facebook_picture_url %>
-        <img class="avatar" src="<%= current_user.facebook_picture_url %>">
+        <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= current_user.facebook_picture_url %>">
         <% else %>
         <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://cdn0.iconfinder.com/data/icons/unigrid-flat-human-vol-2/90/011_101_anonymous_anonym_hacker_vendetta_user_human_avatar-512.png">
 

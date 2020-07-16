@@ -1,5 +1,5 @@
 
-  <div class="product">
+<div class="product">
     <div class="product-upvote text-center" data-report="upvote-<%= report.id %>">
       <%= render 'report_votes/upvote', report: report %>
       </div>
@@ -31,14 +31,12 @@
     </div>
       <p><small><%= report.created_at.strftime("%e %b %Y %H:%M:%S%p") %></small></p>
       <p><%= report.content.first(280) %>... <%= link_to "See More", report_path(report) %></p>
-
       <ul class="list-inline product-controls">
         <li><a href=""><i class="fab fa-instagram"></i></a></li>
         <li><a href=""><i class="fab fa-facebook"></i></a></li>
         <li><a href=""><i class="fab fa-twitter"></i></a></li>
       </ul>
     </div>
-
     <div class="bookmark-container">
      <% if policy(ReportBookmark.new(report: report)).create? %>
      <%= link_to report_report_bookmarks_path(report), method: :post do %>
