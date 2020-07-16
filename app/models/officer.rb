@@ -4,8 +4,7 @@ class Officer < ApplicationRecord
 
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :badge_number, presence: true
-  validates :department, presence: true
+
 
   def full_name
     "#{self.first_name} #{self.last_name}"
@@ -32,6 +31,11 @@ class Officer < ApplicationRecord
 
   def officer_city
     self.city.name
+  end
+
+  def new_officer(attributes = {})
+    new_officer = Officer.new
+
   end
 
 end
