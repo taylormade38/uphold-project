@@ -8,7 +8,7 @@ class Report < ApplicationRecord
   has_many :report_votes
   has_many :report_bookmarks
   has_many_attached :photos
-
+  before_validation :set_city
   validates :city, presence: true
   validates :content, presence: true
   validates :evaluation, inclusion: { in: EVALUATION }
@@ -33,6 +33,14 @@ class Report < ApplicationRecord
       user_city = City.find_or_create_by(name: self.user.city.name)
       places = Scraper.new.call(longitude: user_city.longitude, latitude: user_city.latitude, city: user_city)
       ResourcesMailer.with(user: self).resources(places).deliver_now!
+    end
+  end
+
+  def set_city
+    if address
+      city_name = address.split(",")[-3]
+      city = City.find_by(name: city_name)
+      self.city = city
     end
   end
 end

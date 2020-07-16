@@ -15,7 +15,8 @@
       </div>
       <span class="city-card-title"><%= city.name %></span>
       <div class="card-description">
-        <p><i class="far fa-bookmark" aria-hidden="true"></i> <%= city.reports.length %> reports today</p>
+
+        <p><i class="far fa-bookmark frontpage-card-bookmark" aria-hidden="true"></i><%= pluralize city.reports.length, "report" %> </p>
       </div>
       </div>
     </div>

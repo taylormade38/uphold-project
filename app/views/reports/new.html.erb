@@ -30,18 +30,16 @@
           <select id="selectofficer" data-officers="<%= @officers.to_json %>" name="report[officer_id]" class="officer-select" style="width: 100%"></select>
           </div>
 
-           <div class="form__group field">
-            <input type="text" class="form__field" id="report_address" name="report[address]" />
-            <label for="address" class="form__label">Enter a location...</label>
-          </div>
 
-          <%= f.association :city, label: false, prompt: "Select a City" %>
+<div class="form__group field">
+  <input type="input" id="report_address" class="form__field" placeholder="Name" name="report[address]" id='name' />
+  <label for="name" class="form__label">Enter an address...</label>
+</div>
 
           <div class="form__group field">
             <textarea type="text" class="form__field" id="report-content" name="report[content]" placeholder="ie. I was peacefully protesting when..." name="name" rows="3" required rows="1"></textarea>
             <label for="name" class="form__label">Tell us what happened: (ie. I was peacefully protesting when...)</label>
           </div>
-
 
 
           <%= f.input :photos, label: "📸 Upload photos or videos:", label_html: { class: 'upload-photo'}, as: :file, input_html: { multiple: true, class: 'd-none', id: 'photo-input' } %>
