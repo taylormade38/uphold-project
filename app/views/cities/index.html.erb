@@ -24,7 +24,7 @@
         <% if @cities.empty? %>
         <p>Sorry, there are no cities available that match your search. Try again.</p>
         <% else %>
-        <%= render "shared/card-frontpage" %>
+        <%= render "shared/card-frontpage", cities: @cities %>
         <% end %>
       </div>
     </div>
