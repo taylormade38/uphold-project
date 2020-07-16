@@ -1,0 +1,15 @@
+  <%= form_tag sort_cities_path, method: :get, remote: :true, class: "d-flex" do %>
+  <%= submit_tag "Sort", class: "btn btn-outline-dark ml-2" %>
+    <% if !params[:sort].present? || params[:sort] == 'down'  %>
+        <%= text_field_tag :sort,
+        params[:sort], value: 'up',
+        class: "form-control d-none nav-search-group" %>
+        <button class="btn btn-outline-dark arrow-button"><i class="fas fa-caret-up "></i></button>
+
+      <% else %>
+        <%= text_field_tag :sort,
+        params[:sort], value: 'down',
+        class: "form-control d-none nav-search-group" %>
+         <button class="btn btn-outline-dark arrow-button"><i class="fas fa-caret-down "></i></button>
+      <% end %>
+    <% end %>

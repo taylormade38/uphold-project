@@ -1,5 +1,6 @@
 
 <%= render "shared/banner" %>
 <%= render "shared/search-bar" %>
-<%= render "shared/card-frontpage" %>
-
+<div id="cities-results">
+  <%= render "shared/card-frontpage", cities: @cities %>
+</div>

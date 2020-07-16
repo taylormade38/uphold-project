@@ -8,4 +8,8 @@ class CityPolicy < ApplicationPolicy
   def show?
     return true
   end
+
+  def sort?
+    return true
+  end
 end

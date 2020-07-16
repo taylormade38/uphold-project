@@ -19,6 +19,25 @@ class CitiesController < ApplicationController
     end
   end
 
+
+  def sort
+    @cities = City.all
+
+    if params[:sort].present?
+      if params[:sort] == 'up'
+        @cities = @cities.sort_by { |city| -city.reports.count }
+      elsif params[:sort] == 'down'
+        @cities = @cities.sort_by { |city| city.reports.count }
+      end
+      respond_to do |f|
+        f.html { redirect_to root_path }
+        f.js
+      end
+      authorize City
+    end
+
+  end
+
   def index
     if params[:query].present?
       sql_query = "name ILIKE :query OR state ILIKE :query"

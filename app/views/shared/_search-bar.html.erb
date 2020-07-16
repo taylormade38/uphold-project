@@ -1,34 +1,19 @@
 <div class="container py-4">
   <div class="search-container">
-<div class="search-form">
-<%= form_tag root_path, method: :get, class: "d-flex search-bar" do %>
-  <%= text_field_tag :query,
-  params[:query],
-  class: "form-control nav-search-group",
-    id: "nav-search",
-    placeholder: "Find reports in your area"
-    %>
-    <%= submit_tag "Search", class: "btn btn-outline-dark ml-2" %>
-    <% end %>
-</div>
-<div class="sort-button">
-  <%= form_tag root_path, method: :get, class: "d-flex" do %>
-  <%= submit_tag "Sort", class: "btn btn-outline-dark ml-2" %>
-    <% if !params[:sort].present? || params[:sort] == 'down'  %>
-        <%= text_field_tag :sort,
-        params[:sort], value: 'up',
-        class: "form-control d-none nav-search-group" %>
-        <button class="btn btn-outline-dark arrow-button"><i class="fas fa-caret-up "></i></button>
-
-      <% else %>
-        <%= text_field_tag :sort,
-        params[:sort], value: 'down',
-        class: "form-control d-none nav-search-group" %>
-         <button class="btn btn-outline-dark arrow-button"><i class="fas fa-caret-down "></i></button>
-      <% end %>
-    <% end %>
+    <div class="search-form">
+    <%= form_tag root_path, method: :get, class: "d-flex search-bar" do %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control nav-search-group",
+        id: "nav-search",
+        placeholder: "Find reports in your area"
+        %>
+        <%= submit_tag "Search", class: "btn btn-outline-dark ml-2" %>
+        <% end %>
+    </div>
+    <div id="sort-form" class="sort-button">
+      <%= render 'shared/search_city_form', params: params %>
+    </div>
   </div>
-</div>
-
 </div>
 
