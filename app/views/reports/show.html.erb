@@ -7,8 +7,6 @@
 </div>
 <div class="container show">
   <h2 id="pro-head">Report #<%= @report.id %></h2>
-     <%= render_shareable :buttons=> ['twitter', 'facebook' ], url: "http://www.projectuphold.com/report/#{@report.id}", :facebook=> {:send=> 'true', :url=> "http://www.projectuphold.com/report/#{@report.id}" } %>
-
   <div class="row">
     <div class="col-md-4 img">
       <% if @report.photos.attached? %>
@@ -26,6 +24,8 @@
       <h5><i class="fas fa-address-card"></i> <%= link_to "#{@report.officer.first_name} #{@report.officer.last_name}", officer_path(@report.officer) %></h5>
       <br>
       Created: <%= @report.created_at.strftime('%A, %d %b %Y %l:%M %p') %>
+      <br>
+      <%= render_shareable :buttons=> ['twitter', 'facebook' ], url: "http://www.projectuphold.com/reports/#{@report.id}", :facebook=> {:send=> 'true', :url=> "http://www.projectuphold.com/reports/#{@report.id}" } %>
     </div>
   </div>
 </div>
