@@ -37,6 +37,12 @@ class ReportsController < ApplicationController
         officer.save
     end
     # If not, add officer
+    if params[:report][:tag_ids] != []
+      tag_ids = params[:report][:tag_ids]
+      tag_ids.each do |id|
+        @report.tags << Tag.find(id) if id != ""
+      end
+    end
     if @report.save!
 
       redirect_to city_path(@report.city)
