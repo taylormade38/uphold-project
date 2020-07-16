@@ -2,7 +2,8 @@
   <div class="home-cards">
  <% @cities.each do |city| %>
   <%= link_to city_path(city) do %>
-      <div class="card-category <%= city.name.downcase %>-picture" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= city.find_photo %>)">
+    <div class="parent">
+      <div class="card-category <%= city.name.downcase %>-picture">
       <div class="overlay-frontpage-card">
         <ul class="card-fp-list">
         <li>🚨 <small> UpHold Reports:</small> <%= city.reports.length %></li>
@@ -17,6 +18,7 @@
         <p><i class="far fa-bookmark" aria-hidden="true"></i> <%= city.reports.length %> reports today</p>
       </div>
       </div>
+    </div>
     <% end %>
     <% end %>
   </div>

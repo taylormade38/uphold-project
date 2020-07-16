@@ -1,6 +1,6 @@
 
 <div style="padding-top: 5rem">
-    <div class="city-banner <%= @city.name.downcase %>-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= @city.find_photo(1200) %>')">
+    <div class="city-banner <%= @city.name.downcase %>-banner">
 
         <div id="city-title">
           <h1 class="text-center"><%= @city.name %></h1>
@@ -30,9 +30,10 @@
         <!-- Statistics of reports -->
         <div class="tab-pane fade show active" id="statistics" role="tabpanel" aria-labelledby="statistics-tab">
 
+        <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
 
         <%= pie_chart (@city.types_of_reports) %>
-        <%= bar_chart(City.complaints_by_city) %>
+        <%= bar_chart(City.complaints_by_city) %>g
 
         </div>
         <!-- Reports + Find by Tags -->
