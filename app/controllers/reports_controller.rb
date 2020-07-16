@@ -36,7 +36,7 @@ class ReportsController < ApplicationController
         officer.save
     end
     # If not, add officer
-    if @report.save!
+    if @report.save
 
       redirect_to city_path(@report.city)
     else
