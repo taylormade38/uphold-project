@@ -25,6 +25,12 @@ class ReportsController < ApplicationController
     @report.user = current_user
     @report.city = City.find(params[:report][:city_id])
     @report.officer = Officer.find(params[:report][:officer_id])
+    if params[:report][:tag_ids] != []
+      tag_ids = params[:report][:tag_ids]
+      tag_ids.each do |id|
+        @report.tags << Tag.find(id) if id != ""
+      end
+    end
     if @report.save!
       redirect_to city_path(@report.city)
     else
