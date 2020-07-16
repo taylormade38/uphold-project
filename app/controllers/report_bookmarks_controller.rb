@@ -4,7 +4,10 @@ class ReportBookmarksController < ApplicationController
     @report_bookmark = ReportBookmark.new(user: current_user, report: @report)
     authorize @report_bookmark
     @report_bookmark.save
-    redirect_to @report.city
+    respond_to do |format|
+      format.html { redirect_to @report.city }
+      format.js
+    end
   end
 
   def destroy
@@ -12,6 +15,9 @@ class ReportBookmarksController < ApplicationController
     @report_bookmark = ReportBookmark.where(user: current_user, report: @report).first
     authorize @report_bookmark
     @report_bookmark.destroy
-    redirect_to @report.city
+    respond_to do |format|
+      format.html { redirect_to @report.city }
+      format.js
+    end
   end
 end

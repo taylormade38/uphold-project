@@ -1,0 +1,3 @@
+var partial = '<%= j render "bookmark", report: @report %>'
+document.querySelector('[data-bookmark="bookmark-<%= @report.id %>"]').innerHTML = partial
+
