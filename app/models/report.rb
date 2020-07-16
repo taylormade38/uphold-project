@@ -37,8 +37,8 @@ class Report < ApplicationRecord
   end
 
   def set_city
-    if address
-      city_name = address.split(",")[-3]
+    if address && address.split(",")[-3]
+      city_name = address.split(",")[-3].strip
       city = City.find_by(name: city_name)
       self.city = city
     end

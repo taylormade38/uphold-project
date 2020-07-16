@@ -10,6 +10,7 @@ require 'open-uri'
 # #   Character.create(name: 'Luke', movie: movies.first)
 puts "Cleaning database..."
 ReportVote.destroy_all
+ReportBookmark.destroy_all
 Report.destroy_all
 Officer.destroy_all
 User.destroy_all
@@ -19,11 +20,12 @@ Tag.destroy_all
 
 
 
+
 5.times do
   User.create!(email: Faker::Internet.email, password: 'password', city: City.all.sample )
 end
 puts "Creating cities..."
-city1 = {name: 'New York City', state: 'New York'}
+city1 = {name: 'New York', state: 'New York'}
 city2 = {name: 'Los Angeles', state: 'California'}
 city3 = {name: 'Chicago', state: 'Illinois'}
 city4 = {name: 'Houston', state: 'Texas'}
@@ -74,7 +76,9 @@ cities.each do |address|
   report.address = "#{address["address1"]} #{address["city"]} #{address["state"]}"
   report.officer = Officer.all.sample
   report.user = User.first
-  report.city = City.find_by_name(address["city"])
+  city_name = address["city"]
+  city = City.find_by(name: city_name)
+  report.city = city
   report.evaluation = %w(positive negative neutral).sample
   report.save!
   report_counter +=1
