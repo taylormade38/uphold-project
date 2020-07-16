@@ -5,10 +5,10 @@ export default class extends Controller {
     console.log(this.hideTarget);
   }
   hide(event) {
-    if (this.hideTarget.style.display == "block") {
-      this.hideTarget.style.display = "none"
+    if (this.hideTarget.style.display == "none") {
+      this.hideTarget.style.display = "block"
     } else {
-      this.hideTarget.style.display = "block";
+      this.hideTarget.style.display = "none";
     }
   }
 }
