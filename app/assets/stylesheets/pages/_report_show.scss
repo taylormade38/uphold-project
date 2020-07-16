@@ -33,17 +33,20 @@
   justify-content: space-between;
   .btn-success {
     padding: 3px 10px;
+    opacity: 0.5;
+    color: white;
+
     p {
       margin-bottom: 0;
     }
   }
   .btn-success:hover {
-    color: #212529;
     background-color: #1EDD88;
     border-color: #1EDD88;
     }
   .btn-danger {
     padding: 3px 10px;
+    opacity: 0.5;
     p {
       margin-bottom: 0;
     }
@@ -54,6 +57,7 @@
     border-color: #FD1015;
     }
   .btn-secondary {
+    opacity: 0.5;
     padding: 3px 10px;
     p {
       margin-bottom: 0;
