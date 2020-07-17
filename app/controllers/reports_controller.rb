@@ -37,7 +37,7 @@ class ReportsController < ApplicationController
     end
     # If not, add officer
     if @report.save
-
+raise
       redirect_to city_path(@report.city)
     else
       render :new
@@ -75,6 +75,6 @@ class ReportsController < ApplicationController
   end
 
   def report_params
-    params.require(:report).permit(:content, :evaluation, :address, :city_id, :officer_id, photos:[])
+    params.require(:report).permit(:content, :evaluation, :address, :city_id, :officer_id, photos:[], tag_ids: [])
   end
 end
