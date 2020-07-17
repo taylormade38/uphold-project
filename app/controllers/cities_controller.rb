@@ -1,16 +1,18 @@
 class CitiesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :show, :index ]
+  skip_before_action :authenticate_user!, only: [:show, :index]
 
   def show
     @city = City.find(params[:id])
     authorize @city
     if params[:query]
-      @reports = Report.geocoded.search_by_tag(params[:query]).where(city: @city)
+      @reports = Report.all.left_joins(:report_votes).order('COUNT(report_votes.report_id) DESC').group('reports.id, pg_search_7f26104f77a7ce477546cd.rank')
+      @reports = @reports.geocoded.search_by_tag(params[:query])
+      # @reports = Report.all
     else
       @reports = @city.reports.geocoded
       # @reports = Report.where.not(latitude: nil, longitude: nil)
     end
-    @reports = @reports.left_joins(:report_votes).order('COUNT(report_votes.report_id) DESC').group('reports.id')
+
     @markers = @reports.map do |report|
       {
         lat: report.latitude,
@@ -19,10 +21,8 @@ class CitiesController < ApplicationController
     end
   end
 
-
   def sort
     @cities = City.all
-
     if params[:sort].present?
       if params[:sort] == 'up'
         @cities = @cities.sort_by { |city| -city.reports.count }
@@ -35,7 +35,6 @@ class CitiesController < ApplicationController
       end
       authorize City
     end
-
   end
 
   def index

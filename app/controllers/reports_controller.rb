@@ -15,6 +15,7 @@ class ReportsController < ApplicationController
   end
 
   def create
+
     @report = Report.new(report_params)
     authorize @report
     unless params[:other][:user_city] == ""
@@ -32,12 +33,19 @@ class ReportsController < ApplicationController
         full_name = params[:report][:officer_id].split(" ")
         officer.first_name = full_name[0]
         officer.last_name = full_name[1]
-        officer.city = City.find(params[:other][:user_city])
+        @report.valid?
+        officer.city = City.find(@report.city.id)
         officer.save
+    end
+    if params[:report][:tag_ids] != []
+
+      tag_ids = params[:report][:tag_ids]
+      tag_ids.each do |id|
+        @report.tags << Tag.find(id) if id != ""
+      end
     end
     # If not, add officer
     if @report.save
-raise
       redirect_to city_path(@report.city)
     else
       render :new
@@ -75,6 +83,6 @@ raise
   end
 
   def report_params
-    params.require(:report).permit(:content, :evaluation, :address, :city_id, :officer_id, photos:[], tag_ids: [])
+    params.require(:report).permit(:content, :evaluation, :address, :city_id, photos:[])
   end
 end
