@@ -9,7 +9,7 @@ class Report < ApplicationRecord
   has_many :report_bookmarks
   has_many_attached :photos
   before_validation :set_city
-  validates :city, presence: true
+  # validates :city, presence: true
   validates :content, presence: true
   validates :evaluation, inclusion: { in: EVALUATION }
 

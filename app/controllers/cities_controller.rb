@@ -5,7 +5,7 @@ class CitiesController < ApplicationController
     @city = City.find(params[:id])
     authorize @city
     if params[:query]
-      @reports = Report.all.left_joins(:report_votes).order('COUNT(report_votes.report_id) DESC').group('reports.id, pg_search_7f26104f77a7ce477546cd.rank')
+      @reports = Report.all.left_joins(:report_votes).order('COUNT(report_votes.report_id) DESC').group("reports.id, #{PgSearch::Configuration.alias('reports')}.rank")
       @reports = @reports.geocoded.search_by_tag(params[:query])
       # @reports = Report.all
     else
