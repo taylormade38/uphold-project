@@ -11,6 +11,7 @@
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">Negative Reports - <%= @officer.reports.where(evaluation: "negative").count %></li>
+        <li class="list-group-item">Neutral Reports - <%= @officer.reports.where(evaluation: "neutral").count %></li>
         <li class="list-group-item">Positive Reports - <%= @officer.reports.where(evaluation: "positive").count %></li>
       </ul>
 <!--       <div class="card-body">
