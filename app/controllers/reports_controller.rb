@@ -37,7 +37,7 @@
       officer.last_name = full_name[1]
       @report.valid?
       officer.city = City.find(@report.city.id)
-      officer.save
+      officer.save!
     end
 
 

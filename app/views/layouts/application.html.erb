@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-     <%= display_meta_tags site: 'UpHold: Policing the Police' %>
-
+  <%= display_meta_tags site: 'UpHold: Policing the Police' %>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
   <%= favicon_link_tag %>
@@ -11,6 +10,9 @@
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'%>
   <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places,visualization&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
+  <% if controller_name == "reports" && action_name == "show" %>
+    <meta name="turbolinks-visit-control" content="reload">
+  <% end %>
 
 </head>
 <body>

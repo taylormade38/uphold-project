@@ -41,7 +41,6 @@ import { previewImageOnFileSelect } from '../components/photo_preview'
 import { initUpdateNavbarOnScroll } from "../DOM/dynamicNavbar"
 import { initTags } from '../plugins/tag_choice'
 import { initPopover } from '../plugins/popover_activation'
-import { initSweetalert } from '../plugins/init_sweetalert';
 import { initSubmitReport } from '../plugins/submit_report';
 import { initSelect2 } from '../plugins/init_select2';
 import { initEmoji } from '../plugins/report_evaluation';
@@ -62,22 +61,6 @@ document.addEventListener('turbolinks:load', () => {
   initSubmitReport();
   initUpdateNavbarOnScroll();
   initEmoji();
-  initSweetalert('#sweet-alert-email', {
-  title: "Thanks For Your Report!",
-  text: "We understand that having a negative encounter with the police can cause serious emotional distress. If you'd like us to send you an email with mental health or legal resources in your area, add your email below. (Or, check out our 'Resources' page.)" ,
-  content: {
-    element: "input",
-    attributes: {
-      placeholder: "Enter Your City",
-      type: "city",
-    },
-  },
-  buttons: {
-    cancel: "No, Thanks",
-    confirm: "Yes, Please",
-  }
-  });
-  // initSelect2();
 });
 
 import "controllers"
