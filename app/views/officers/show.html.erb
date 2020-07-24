@@ -10,9 +10,8 @@
         <h5 class="card-title"><%= @officer.first_name %> <%= @officer.last_name %></h5>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">Cras justo odio</li>
-        <li class="list-group-item">Dapibus ac facilisis in</li>
-        <li class="list-group-item">Vestibulum at eros</li>
+        <li class="list-group-item">Negative Reports - <%= @officer.reports.where(evaluation: "negative").count %></li>
+        <li class="list-group-item">Positive Reports - <%= @officer.reports.where(evaluation: "positive").count %></li>
       </ul>
 <!--       <div class="card-body">
         <a href="#" class="card-link">Card link</a>
